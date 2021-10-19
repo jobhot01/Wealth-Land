@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Main Menu.unity
+    guid: cd697c9d63361f1439df0bf1d7ca6932
+  - enabled: 1
+    path: Assets/Scenes/CharacterSelec.unity
+    guid: cc3df370f10aebd4eba9ec104cb3ed03
+  - enabled: 1
+    path: Assets/Scenes/Cutscene.unity
+    guid: 60113855cc56c8640a1714cacda9a76e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: b48f62dfc9187f24a81333eebdb55831
+  - enabled: 1
+    path: Assets/Scenes/Turn Counting.unity
+    guid: c7fbc455568081744b93fb3c991c7c89
+  - enabled: 1
+    path: Assets/Scenes/Gameplay Phase 1.unity
+    guid: c234e3f69292892489d409c44f3523ce
+  - enabled: 1
+    path: Assets/Scenes/Gameplay Phase 2.unity
+    guid: 4cdb5675198c7344188e74731b1dc50b
+  - enabled: 1
+    path: Assets/Scenes/Gameplay Phase 3.unity
+    guid: fcf18e99e3a768b4b9e275203f11125e
+  - enabled: 1
+    path: Assets/Scenes/Gameplay Phase 4.unity
+    guid: 2a209215c7252894396694ca006496d4
+  - enabled: 1
+    path: Assets/Scenes/Summary Scene.unity
+    guid: a5aa5484d789f3340a2f17e32c9ed496
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 05534581fc729ff4ca3cee2c7aaf882f
+  - enabled: 1
+    path: Assets/Scenes/Option.unity
+    guid: d57261579730ac84a96771b485cff151
+  m_configObjects: {}
