@@ -8,6 +8,7 @@ public class StartupInvestment : MonoBehaviour
     public int budget, bankedMoney;
     public float depositProfitPercentage, bondProfitPercentage, stockProfitPercentage;
     public Text remainingBankedMoneyDisplayer, remainingBudgetDisplayer, nameDisplay;
+    public GameObject TutorialBox;
 
     void Start()
     {
@@ -17,6 +18,15 @@ public class StartupInvestment : MonoBehaviour
         if (LoadScene.playerName == null)
         {
             LoadScene.playerName = "No name detected";
+        }
+
+        if ( GameController.gameturn <= 1 )
+        {
+            TutorialBox.gameObject.SetActive(true);
+        }
+        else
+        {
+            TutorialBox.gameObject.SetActive(false);
         }
 
         remainingBudgetDisplayer.text = budget.ToString("N0") + " บาท";

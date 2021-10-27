@@ -7,6 +7,7 @@ public class CheckSourceMoney : MonoBehaviour
 {
     public Toggle incomeToggle, savingsToggle;
     public string moneySourceCheck = "None";
+    public bool isToggleOn = false;
     bool isSwap = false;
     [SerializeField] private CalculateSellCards calculateSellCards;
     [SerializeField] private SetupUI setupUI;
@@ -28,6 +29,7 @@ public class CheckSourceMoney : MonoBehaviour
             setupUI.income = setupUI.income - calculateSellCards.allItemBuyValue;
             calculateSellCards.updateUI = true;
             moneySourceCheck = "Income";
+            isToggleOn = true;
             //print("Income On");
         }
         else if (incomeToggle.isOn == true && savingsToggle.isOn == true)
@@ -38,6 +40,7 @@ public class CheckSourceMoney : MonoBehaviour
             moneySourceCheck = "Income";
             //print("Income Swap");
             isSwap = true;
+            isToggleOn = true;
             savingsToggle.GetComponent<Toggle>().isOn = false;
         }
         else if (incomeToggle.isOn == false)
@@ -47,6 +50,7 @@ public class CheckSourceMoney : MonoBehaviour
                 setupUI.income = setupUI.income + calculateSellCards.allItemBuyValue;
                 calculateSellCards.updateUI = true;
                 moneySourceCheck = "None";
+                isToggleOn = false;
                 //print("Income Off");
             }
             else if (isSwap == true)
@@ -63,6 +67,7 @@ public class CheckSourceMoney : MonoBehaviour
             setupUI.savings = setupUI.savings - calculateSellCards.allItemBuyValue;
             calculateSellCards.updateUI = true;
             moneySourceCheck = "Savings";
+            isToggleOn = true;
             //print("Savings On");
         }
         else if (savingsToggle.isOn == true && incomeToggle.isOn == true)
@@ -71,6 +76,7 @@ public class CheckSourceMoney : MonoBehaviour
             setupUI.income = setupUI.income + calculateSellCards.allItemBuyValue;
             calculateSellCards.updateUI = true;
             moneySourceCheck = "Savings";
+            isToggleOn = true;
             //print("Savings Swap");
             isSwap = true;
             incomeToggle.GetComponent<Toggle>().isOn = false;
@@ -82,6 +88,7 @@ public class CheckSourceMoney : MonoBehaviour
                 setupUI.savings = setupUI.savings + calculateSellCards.allItemBuyValue;
                 calculateSellCards.updateUI = true;
                 moneySourceCheck = "None";
+                isToggleOn = false;
                 //print("Savings Off");
             }
             else if (isSwap == true)

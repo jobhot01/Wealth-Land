@@ -60,12 +60,44 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void RetryNewGame()
+    {
+        PlayerPrefs.DeleteKey("allSavings");
+        PlayerPrefs.DeleteKey("FirstIncome");
+        PlayerPrefs.DeleteKey("OnlyProfit");
+        PlayerPrefs.DeleteKey("myHappiness");
+        PlayerPrefs.DeleteKey("ExtraIncome");
+        PlayerPrefs.DeleteKey("allIncome");
+        PlayerPrefs.DeleteKey("allBoughtItem");
+        PlayerPrefs.DeleteKey("randomStock");
+        PlayerPrefs.DeleteKey("randomBond");
+        PlayerPrefs.DeleteKey("randomDeposit");
+        PlayerPrefs.DeleteKey("AllInvestment");
+        PlayerPrefs.DeleteKey("inputStock");
+        PlayerPrefs.DeleteKey("inputBond");
+        PlayerPrefs.DeleteKey("inputDeposit");
+        PlayerPrefs.DeleteKey("SumAllValues");
+        PlayerPrefs.DeleteKey("StackedExtraIncome");
+        PlayerPrefs.DeleteKey("StackedProfit");
+        PlayerPrefs.DeleteKey("StackedSumAllValues");
+        //PlayerPrefs.DeleteKey("gameturn");
+        //PlayerPrefs.DeleteKey("WentOption");
+        PlayerPrefs.SetInt("gameturn", 0);
+        Debug.Log($"Deleted all PlayerPrefs data except Volume.\nSet gameturn to {PlayerPrefs.GetInt("gameturn")}.");
+        SceneManager.LoadScene("Main Menu");
+    }
+
     public void GoOptionMenu()
     {
         audioSource.Play();
         wentOptions = 1;
         PlayerPrefs.SetInt("WentOption",wentOptions);
         SceneManager.LoadScene("Option");
+    }
+
+    public void GoCredit()
+    {
+        SceneManager.LoadScene("Credit");
     }
     
     public void GoCharacterSelec()
@@ -117,7 +149,7 @@ public class LoadScene : MonoBehaviour
 
     public void GoNextPhase()
     {
-        audioSource.Play();
+        //audioSource.Play();
         sceneBuildIndex = scene.buildIndex + 1;
         switch (sceneBuildIndex)
         {
@@ -125,10 +157,6 @@ public class LoadScene : MonoBehaviour
                 PlayerPrefs.SetInt("allSavings", GameController.savingsInt);
                 PlayerPrefs.SetInt("FirstIncome", GameController.mainIncomeInt);
                 PlayerPrefs.SetFloat("OnlyProfit", GameController.profitDifferent);
-                //BottomSoundObj.PlayOneShot(BottomSound);
-                // BottomSoundObj.Play();
-                // audioSource.Play();
-                //PlayerPrefs.SetString("PlayerName", playerName);
                 break;
             case 6:
                 PlayerPrefs.SetInt("allIncome", calculateValue.sumIncome);
@@ -188,6 +216,11 @@ public class LoadScene : MonoBehaviour
                     PlayerPrefs.SetInt("inputBond", 0);
                     PlayerPrefs.SetInt("inputDeposit", 0);
                 }
+                break;
+            
+            case 10:
+                PlayerPrefs.SetInt("EventSum", GameEventsManager.eventSum);
+                Debug.Log("Scene: " + sceneBuildIndex);
                 break;
         }
         SceneManager.LoadScene(sceneBuildIndex);

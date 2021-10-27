@@ -35,28 +35,34 @@ public class SummaryAllValues : MonoBehaviour
     float profit;
     float stackedProfit;
     int[] itemArray;
-    int income;
+    int fristIncome;
     int savings;
     int investment;
     int happiness;
     int allIncome;
+    int remainingIncome;
     int turn;
     int deposit;
     int bond;
     int stock;
     int extraIncome;
     int stackedExtraIncome;
+    int eventSum;
+    int eventIncome;
+    int eventCost;
 
     void Start()
     {
         investment = PlayerPrefs.GetInt("AllInvestment");
-        income = PlayerPrefs.GetInt("FirstIncome");
+        fristIncome = PlayerPrefs.GetInt("FirstIncome");
+        remainingIncome = PlayerPrefs.GetInt("allIncome");
         savings = PlayerPrefs.GetInt("allSavings");
         happiness = PlayerPrefs.GetInt("myHappiness");
         turn = PlayerPrefs.GetInt("gameturn");
         deposit = PlayerPrefs.GetInt("inputDeposit");
         bond = PlayerPrefs.GetInt("inputBond");
         stock = PlayerPrefs.GetInt("inputStock");
+        eventSum = PlayerPrefs.GetInt("EventSum");
         extraIncome = PlayerPrefs.GetInt("ExtraIncome");
         stackedExtraIncome = PlayerPrefs.GetInt("StackedExtraIncome");
         stackedSumAllValues = PlayerPrefs.GetFloat("StackedSumAllValues");
@@ -82,6 +88,7 @@ public class SummaryAllValues : MonoBehaviour
         CalculateFinancialObstacle();
         FinancialObstacleChecking();
         ItemEffects();
+        CalculateEventSummary();
         SumAllExpenditures();
         CalculateAllValues();
         StackingProfit();
@@ -171,6 +178,19 @@ public class SummaryAllValues : MonoBehaviour
         }
     }
 
+    void CalculateEventSummary()
+    {
+        Debug.Log("Event Sum: " + eventSum);
+        if (eventSum >= 0)
+        {
+            eventIncome = eventSum;
+        }
+        else if (eventSum < 0)
+        {
+            eventCost = eventSum * -1;
+        }
+    }
+
     void StackExtraIncome()
     {
         stackedExtraIncome = stackedExtraIncome + extraIncome;
@@ -205,7 +225,8 @@ public class SummaryAllValues : MonoBehaviour
 
     void SumAllIncome()
     {
-        allIncome = income + savings + investment;
+        remainingIncome += eventIncome;
+        allIncome = remainingIncome + savings + investment;
     }
 
     void CalculateEmergencyExpenditureChance()
@@ -219,21 +240,22 @@ public class SummaryAllValues : MonoBehaviour
         else
         {
             emergencyExpenditure = 0;
-            Debug.Log( "No Emergency Expenditure." );
+            //Debug.Log( "Only Event Cost: " + eventCost );
         }
     }
 
     void AddEmergencyExpenditure()
     {
-        float x = (float)income * Random.Range( 0.75f, 1f );
+        float x = (float)fristIncome * Random.Range( 0.75f, 1f );
         Debug.Log( "Income after /: " + x );
-        emergencyExpenditure = x * eeOccurChance;
+        emergencyExpenditure = x * eeOccurChance + eventCost;
         Debug.Log( "Emergency Expenditure: " + emergencyExpenditure );
     }
 
     void SumAllExpenditures()
     {
-        mainExpenditure = income * Random.Range( 0.6f, 0.8f );
+        mainExpenditure = fristIncome * Random.Range( 0.6f, 0.8f );
+        emergencyExpenditure += eventCost;
         allExpenditure = mainExpenditure + emergencyExpenditure + financialObstacle;
         Debug.Log( "All Expenditure: " + allExpenditure );
     }
@@ -249,43 +271,44 @@ public class SummaryAllValues : MonoBehaviour
         if ( sumAllValues <= 0 )
         {
             sumAllValues += (float)investment * 0.95f;
-            investment = 0;
-            deposit = 0;
-            bond = 0;
-            stock = 0;
-            PlayerPrefs.SetInt("AllInvestment", investment);
-            PlayerPrefs.SetInt("inputStock", stock);
-            PlayerPrefs.SetInt("inputBond", bond);
-            PlayerPrefs.SetInt("inputDeposit", deposit);
+            PlayerPrefs.SetInt("AllInvestment", 0);
+            PlayerPrefs.SetInt("inputStock", 0);
+            PlayerPrefs.SetInt("inputBond", 0);
+            PlayerPrefs.SetInt("inputDeposit", 0);
 
             if ( sumAllValues <= 0 )
             {
-                NextButton.interactable = false;
-                Invoke("ShowFailImage", 2.5f);
+                //NextButton.interactable = false;
+                //Invoke("ShowFailImage", 2.5f);
                 FailMusic.SetActive(true);
             }
             else
             {
-                Invoke("ShowCompleteImage", 5f);
+                //Invoke("ShowCompleteImage", 5f);
                 CompleteMusic.SetActive(true);
             }
         }
         else
         {
-            Invoke("ShowCompleteImage", 5f);
+            //Invoke("ShowCompleteImage", 5f);
             CompleteMusic.SetActive(true);
         }
     }
 
     void ShowCompleteImage()
     {
-        CompleteImage.SetActive(true);
+        //CompleteImage.SetActive(true);
     }
 
     void ShowFailImage()
     {
-        FailImage.SetActive(true);
-        Invoke("GoGameOver", 2.5f);
+        //FailImage.SetActive(true);
+        //Invoke("GoGameOver", 2.5f);
+    }
+
+    void LoadNextTurn()
+    {
+        SceneManager.LoadScene("Turn Counting");
     }
 
     void GoGameOver()
@@ -295,15 +318,13 @@ public class SummaryAllValues : MonoBehaviour
 
     public void GoNextTurn()
     {
-        if (turn >= 12 )
+        if ( sumAllValues > 0 )
         {
-            SceneManager.LoadScene("Game Over");
-        }
-        else
-        {
+            CompleteImage.SetActive(true);
+            NextButton.interactable = false;
             stackedSumAllValues = stackedSumAllValues + sumAllValues;
             Debug.Log("Stacked Value before reset: " + stackedSumAllValues);
-            
+                
             //PlayerPrefs.SetInt("allIncome", income);
             PlayerPrefs.SetInt("allSavings", savings);
             PlayerPrefs.SetInt("StackedExtraIncome", stackedExtraIncome);
@@ -313,23 +334,54 @@ public class SummaryAllValues : MonoBehaviour
             if (turn == 4 || turn == 8 || turn == 12)
             {
                 stackedSumAllValues = 0;
+                PlayerPrefs.DeleteKey("StackedSumAllValues");
                 Debug.Log("Reset Stacked Value: " + stackedSumAllValues);
                 Debug.Log("Stack has been reset.");
-                PlayerPrefs.SetFloat("StackedSumAllValues", stackedSumAllValues);
+                if (turn >= 12)
+                {
+                    Invoke("GoGameOver", 1.5f);
+                }
+                else
+                {
+                    Invoke("LoadNextTurn", 1.5f);
+                }
             }
             else
             {
                 PlayerPrefs.SetFloat("StackedSumAllValues", stackedSumAllValues);
+                Invoke("LoadNextTurn", 1.5f);
             }
-            SceneManager.LoadScene("Turn Counting");
         }
+        else if (sumAllValues <= 0)
+        {
+            FailImage.SetActive(true);
+            PlayerPrefs.SetFloat("StackedProfit", stackedProfit);
+            PlayerPrefs.SetInt("StackedExtraIncome", stackedExtraIncome);
+            PlayerPrefs.SetFloat("SumAllValues", sumAllValues);
+            NextButton.interactable = false;
+            Invoke("GoGameOver", 1.5f);
+        }
+    
+        //if (turn >= 12 )
+        //{
+            // stackedSumAllValues = stackedSumAllValues + sumAllValues;
+            // PlayerPrefs.SetFloat("StackedProfit", stackedProfit);
+            // PlayerPrefs.SetInt("StackedExtraIncome", stackedExtraIncome);
+            // PlayerPrefs.SetFloat("SumAllValues", sumAllValues);
+            // NextButton.interactable = false;
+            // Invoke("GoGameOver", 2.5f);
+        //}
+        //else
+        //{
+            
+        //}
     }
 
     void UI_Update()
     {
         TurnDisplay.text = $"สรุปรายรับ - รายจ่ายของเทิร์นที่ {turn.ToString()}";
 
-        IncomeDisplay.text = income.ToString("N0");
+        IncomeDisplay.text = remainingIncome.ToString("N0");
         SavingsDisplay.text = savings.ToString("N0");
         InvestmentDisplay.text = investment.ToString("N0");
         AllIncomeDisplay.text = allIncome.ToString("N0");

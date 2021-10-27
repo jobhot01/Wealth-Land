@@ -153,7 +153,7 @@ public class GameController : MonoBehaviour
         {
             ProfitDisplay.color = new Color (0, 0.65f, 0, 1f);
         }
-        else if (profitDifferent <0)
+        else if (profitDifferent < 0)
         {
             ProfitDisplay.color = Color.red;
         }

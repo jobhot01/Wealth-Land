@@ -12,6 +12,9 @@ TextureImporter:
       213: 6268721394031566645
     second: assets-29_3
   - first:
+      213: -4453454089829196126
+    second: assets-29_21
+  - first:
       213: 8452195525703576255
     second: assets-29_22
   - first:
@@ -26,6 +29,12 @@ TextureImporter:
   - first:
       213: 1974986808245091245
     second: assets-29_26
+  - first:
+      213: -5872207754250282659
+    second: assets-29_27
+  - first:
+      213: -6331874327593054036
+    second: assets-29_28
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -198,13 +207,34 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: assets-29_22
+      name: assets-29_21
       rect:
         serializedVersion: 2
         x: 5646
         y: 4650
         width: 768
         height: 773
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ae5838c9172232c0800000000000000
+      internalID: -4453454089829196126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets-29_22
+      rect:
+        serializedVersion: 2
+        x: 6894
+        y: 5371
+        width: 2391
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,8 +252,8 @@ TextureImporter:
       name: assets-29_23
       rect:
         serializedVersion: 2
-        x: 6894
-        y: 5371
+        x: 917
+        y: 4656
         width: 2391
         height: 627
       alignment: 0
@@ -243,10 +273,10 @@ TextureImporter:
       name: assets-29_24
       rect:
         serializedVersion: 2
-        x: 5646
-        y: 3466
-        width: 768
-        height: 762
+        x: 6888
+        y: 62
+        width: 5057
+        height: 5121
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -264,10 +294,10 @@ TextureImporter:
       name: assets-29_25
       rect:
         serializedVersion: 2
-        x: 6888
-        y: 62
-        width: 5057
-        height: 5121
+        x: 900
+        y: 3888
+        width: 2384
+        height: 627
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -285,10 +315,10 @@ TextureImporter:
       name: assets-29_26
       rect:
         serializedVersion: 2
-        x: 5812
-        y: 2576
-        width: 432
-        height: 433
+        x: 5646
+        y: 3466
+        width: 768
+        height: 762
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,6 +328,48 @@ TextureImporter:
       bones: []
       spriteID: dabf785c900986b10800000000000000
       internalID: 1974986808245091245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets-29_27
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 3126
+        width: 2384
+        height: 627
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d591e98e82ab18ea0800000000000000
+      internalID: -5872207754250282659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets-29_28
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 2359
+        width: 2390
+        height: 627
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca09665c8d9a028a0800000000000000
+      internalID: -6331874327593054036
       vertices: []
       indices: 
       edges: []

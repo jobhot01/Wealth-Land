@@ -7,6 +7,7 @@ public class GenderSelect : MonoBehaviour
 {
     public string gender;
     public Button manButton, womanButton;
+    public GameObject manStamp, womanStamp;
     public AudioSource stampSound;
     [SerializeField] private CheckAllCharacterScripts checkAllCharacterScripts;
 
@@ -17,6 +18,8 @@ public class GenderSelect : MonoBehaviour
         //print("Man");
         manButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         womanButton.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+        manStamp.SetActive(true);
+        womanStamp.SetActive(false);
         checkAllCharacterScripts.UpdateButton();
     }
 
@@ -27,6 +30,8 @@ public class GenderSelect : MonoBehaviour
         //print("Woman");
         womanButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         manButton.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+        womanStamp.SetActive(true);
+        manStamp.SetActive(false);
         checkAllCharacterScripts.UpdateButton();
     }
 }

@@ -9,6 +9,7 @@ public class ClickItemCard : MonoBehaviour
     public GameObject stamp;
     public AudioSource stampSound;
     [SerializeField] private CalculateSellCards calculateSellCards;
+    [SerializeField] private CheckSourceMoney checkSourceMoney;
 
     void checkPlaceIndex()
     {
@@ -34,7 +35,7 @@ public class ClickItemCard : MonoBehaviour
 
     private void OnMouseDown()
     {
-            if (isClick == false)
+            if (isClick == false && checkSourceMoney.isToggleOn == true)
             {
                 //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.6f);
                 stamp.SetActive(true);
@@ -43,7 +44,7 @@ public class ClickItemCard : MonoBehaviour
                 calculateSellCards.doBuyItem(cardSelectIndex);
                 isClick = true;
             }
-            else if (isClick == true)
+            else if (isClick == true && checkSourceMoney.isToggleOn == true)
             {
 
                 //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);

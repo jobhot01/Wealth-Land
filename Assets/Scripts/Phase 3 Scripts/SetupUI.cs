@@ -7,6 +7,7 @@ public class SetupUI : MonoBehaviour
 {
     public Text incomeText, savingsText, nameDisplay;
     public Button nextButton;
+    public GameObject TutorialBox;
     public int income, savings;
     [SerializeField] CalculateSellCards calculateSellCards;
 
@@ -18,6 +19,15 @@ public class SetupUI : MonoBehaviour
         if (LoadScene.playerName == null)
         {
             LoadScene.playerName = "No name detected";
+        }
+
+        if ( GameController.gameturn <= 1 )
+        {
+            TutorialBox.gameObject.SetActive(true);
+        }
+        else
+        {
+            TutorialBox.gameObject.SetActive(false);
         }
         
         UpdateUI();

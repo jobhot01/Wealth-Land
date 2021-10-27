@@ -24,7 +24,7 @@ public class DoNotDestroy : MonoBehaviour
 
     void CheckSceneIndex()
     {
-        if (scene.buildIndex == 9 || scene.buildIndex == 10)
+        if (scene.buildIndex == 10 || scene.buildIndex == 11)
         {
             Destroy(this.gameObject);
         }
