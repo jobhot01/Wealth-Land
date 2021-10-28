@@ -52,6 +52,7 @@ public class TextBoxManager : MonoBehaviour
         if (CurrentLine > EndAtLine)
         {
             TextImporter.SetActive(false);
+            NextButton.interactable = false;
         }
     }
 

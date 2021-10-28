@@ -36,42 +36,47 @@ public class GameEventsManager : MonoBehaviour
     {
         if (gameturn <= 4)
         {
-            costOrBonus = Random.Range(1,3);
-            switch (costOrBonus)
-            {
-                
-                case 1:
-                    eventNumbers = Random.Range(1, 6);
-                    RandomEvents(eventNumbers);
-                    break;
+            costOrBonus = Random.Range(1,5);
 
-                case 2:
-                    eventNumbers = Random.Range(17, 20);
-                    RandomEvents(eventNumbers);
-                    break;
+            if (costOrBonus < 4)
+            {
+                eventNumbers = Random.Range(1, 5);
+                RandomEvents(eventNumbers);
+            }
+            else if (costOrBonus == 4)
+            {
+                eventNumbers = Random.Range(17, 20);
+                RandomEvents(eventNumbers);
             }
         }
         else if (gameturn >= 5 && gameturn < 8)
         {
-            costOrBonus = Random.Range(1,3);
-            switch (costOrBonus)
-            {
-                
-                case 1:
-                    eventNumbers = Random.Range(1, 11);
-                    RandomEvents(eventNumbers);
-                    break;
+            costOrBonus = Random.Range(1,5);
 
-                case 2:
-                    eventNumbers = Random.Range(17, 22);
-                    RandomEvents(eventNumbers);
-                    break;
+            if (costOrBonus < 4)
+            {
+                eventNumbers = Random.Range(4, 11);
+                RandomEvents(eventNumbers);
+            }
+            else if (costOrBonus == 4)
+            {
+                eventNumbers = Random.Range(17, 22);
+                RandomEvents(eventNumbers);
             }
         }
         else if (gameturn >= 8)
         {
-            eventNumbers = Random.Range(1, 25);
-            RandomEvents(eventNumbers);
+            costOrBonus = Random.Range(1,5);
+            if (costOrBonus < 4)
+            {
+                eventNumbers = Random.Range(10, 17);
+                RandomEvents(eventNumbers);
+            }
+            else if (costOrBonus == 4)
+            {
+                eventNumbers = Random.Range(17, 25);
+                RandomEvents(eventNumbers);
+            }
         }
     }
 
@@ -80,16 +85,6 @@ public class GameEventsManager : MonoBehaviour
         eventSum = bonus - cost;
         Debug.Log($"Event Sum: {eventSum}, Cost: {cost}, Bonus: {bonus}");
         PlayerPrefs.SetInt("EventSum", eventSum);
-        // if (eventSum >= 0)
-        // {
-        //     eventIncome = eventSum;
-        //     Debug.Log("More Money!");
-        // }
-        // else if (eventSum < 0)
-        // {
-        //     eventCost = eventSum;
-        //     Debug.Log("Less Money!");
-        // }
     }
 
     void RandomEvents(int RandomEventNumber)
@@ -99,7 +94,7 @@ public class GameEventsManager : MonoBehaviour
             
             case 1: 
                 cost = 500;
-                RandomEventText.text = "ดูสัตว์พวกนั้นสิช่างน่ารักสะเหลือเกิน โอ๊ย นกกระจอกเทศตัวนี้มันอะไรเนียจิ๊กหัวฉันสะเลือดออกเลย";
+                RandomEventText.text = "ดูสัตว์พวกนั้นสิช่างน่ารักซะเหลือเกิน โอ๊ย นกกระจอกเทศตัวนี้มันอะไรเนียจิ๊กหัวฉันซะเลือดออกเลย";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
@@ -111,43 +106,43 @@ public class GameEventsManager : MonoBehaviour
             
             case 3:
                 cost = 1250;
-                RandomEventText.text = "อาหาร นั้น เพราะอาหารนั้นแน่เลยทำให้ท้องฉันเป็นแบบนี้ อุ้ย ไม่ไหวแล้ว ขอเข้าห้องน้ำก่อนนะ";
+                RandomEventText.text = "อาหารนั้น เพราะอาหารนั้นแน่เลยทำให้ท้องฉันเป็นแบบนี้ อุ้ย ไม่ไหวแล้ว ขอเข้าห้องน้ำก่อนนะ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 4:
                 cost = 1850;
-                RandomEventText.text = "พี่วินทำกันได้ ระหว่างนั่งมอไซ ไปทำงานขับรถเกี่ยวชุดไปทำงานขาด โอ้ไม่นะพี่วิน";
+                RandomEventText.text = "พี่วินทำกันได้ ระหว่างนั่งมอไซไปทำงานขับรถเกี่ยวชุดไปทำงานขาด โอ้ไม่นะพี่วิน";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 5:
                 cost = 2500;
-                RandomEventText.text = "หัวหน้าที่ทำงานดันยืนซองขอรับบริจากให้เด็กผู้ด้อยโอกาส ... ฉันไม่กล้าไม่กล้าปฏิเสธหัวหน้าสะด้วยสิ";
+                RandomEventText.text = "หัวหน้าที่ทำงานดันยื่นซองรับบริจากให้เด็กผู้ด้อยโอกาส...ฉันไม่กล้าไม่กล้าปฏิเสธหัวหน้าซะด้วยสิ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 6:
                 cost = 2700;
-                RandomEventText.text = "น้องแมวแสนรักของฉันมากระซิบข้างหูบอกว่าอยากได้คอนโดใหม่ก็จัดไปเลยสิจ๊ะ ชุดใหญ่";
+                RandomEventText.text = "น้องแมวแสนรักของฉันมากระซิบข้างหูบอกว่าอยากได้คอนโดใหม่ก็จัดไปเลยสิจ๊ะ ชุดใหญ่ไฟกระพริบ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 7:
                 cost = 3500;
-                RandomEventText.text = "ฉันไม่ชอบการไปโรงพยาบาลเอาสะเลยแต่ทำไงแต่ฉันดันหกล้อมพลาดตกบันไดสะได้";
+                RandomEventText.text = "ฉันไม่ชอบการไปโรงพยาบาลเอาซะเลยแต่ทำไงแต่ฉันดันหกล้มพลาดตกบันไดซะได้";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 8:
                 cost = 4800;
-                RandomEventText.text = "PM 2.5 ช่างอันตรายยิ่งนัก ฉันเป็นคนรักสุขภาพสะด้วยสิซื้อเครื่องฟอกอากาศสักตัวดีกว่า";
+                RandomEventText.text = "PM2.5 ช่างอันตรายยิ่งนัก ฉันเป็นคนรักสุขภาพซะด้วยสิซื้อเครื่องฟอกอากาศซักตัวดีกว่า";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 9:
                 cost = 5700;
-                RandomEventText.text = "หลังจากทำงานหนักพักผ่อนบ้างก็ดีนะ โกทูบาหลี";
+                RandomEventText.text = "หลังจากทำงานหนักพักผ่อนบ้างก็ดีนะ โกทูบาหลี!";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
@@ -159,49 +154,49 @@ public class GameEventsManager : MonoBehaviour
 
             case 11:
                 cost = 9500;
-                RandomEventText.text = "ไม่นะ โน๊ตบุคที่ทำงานประจำพัง ฉันต้องเอาไปซ่อม ด่วน เสียเงินอีกแล้วสินะเรา";
+                RandomEventText.text = "ไม่นะ! โน๊ตบุคที่ทำงานประจำพัง ฉันต้องเอาไปซ่อมด่วน เสียเงินอีกแล้วสินะเรา";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
             
             case 12:
                 cost = 12500;
-                RandomEventText.text = "มีคนบอกว่าให้เอาเงินไปลงแชร์ กับเขาสิ ได้ผลตอบแทน 120% หลังจากฉันจ่ายเงินไปเข้าก็บ็อคเฟสฉันหนีหายไปเลย";
+                RandomEventText.text = "มีคนบอกว่าให้เอาเงินไปลงแชร์กับเขาสิ ได้ผลตอบแทน 120% หลังจากฉันจ่ายเงินไปเข้าก็บ็อคเฟสฉันหนีหายไปเลย";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 13:
                 cost = 15000;
-                RandomEventText.text = "เอ๋ไหน ในทวิต ร้าบาล บอกว่าบ้านฉันปลอดภัยจากน้ำท่วม ไหนตอนนี้ บุ๋ม ๆ ๆ ๆ ... ";
+                RandomEventText.text = "เอ๋ไหนในทวิต'ร้าบาล' บอกว่าบ้านฉันปลอดภัยจากน้ำท่วม ไหนตอนนี้ บุ๋มๆๆๆ ... ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 14:
                 cost = 17500;
-                RandomEventText.text = "ใครบอกว่าฉันทำอาหารไม่เป็น ฉันแค่ลืมปิดไฟหม้อต้มน้ำ จนไฟไหม้ครัวเท่านั้นเองแหละ ... ";
+                RandomEventText.text = "ใครบอกว่าฉันทำอาหารไม่เป็น ฉันแค่ลืมปิดแก๊สจนไฟไหม้ครัวเท่านั้นเองแหละ ... ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 15:
                 cost = 20000;
-                RandomEventText.text = "ทำไมฉันมันขี้ลืมขนาดนี้นะ ลืมล๊อคบ้าน หวานโจร ของหายเกือบหมดบ้าน ดีนะที่มันยังเหลือรองเท้าให้ฉัน 1 คู่";
+                RandomEventText.text = "ทำไมฉันมันขี้ลืมขนาดนี้นะ ลืมล๊อคบ้านหวานโจร ของหายเกือบหมดบ้าน ดีนะที่มันยังเหลือรองเท้าให้ฉัน 1 คู่";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 16:
                 cost = 45000;
-                RandomEventText.text = "เขาบอกกันว่า โจรขึ้นบ้าน 10 ทีไม่เท่า ไฟไหม้ทีเดียวมันเป็นแบบนี้สินะ ไปแล้วบ้านฉันไม่มีประกันสะด้วย";
+                RandomEventText.text = "เขาบอกกันว่า โจรขึ้นบ้าน 10 ทีไม่เท่าไฟไหม้ทีเดียวมันเป็นแบบนี้สินะ ไปแล้วบ้านฉันไม่มีประกันซะด้วย";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
             
             case 17:
                 bonus = 250;
-                RandomEventText.text = "หัวหน้าที่ทำงานได้เลื่อนขั่น เลี้ยงหมูกระทะ สบายกระเป๋ากินฟรี 1 มื้อ";
+                RandomEventText.text = "หัวหน้าที่ทำงานได้เลื่อนขั่น เลี้ยงหมูกระทะสบายกระเป๋ากินฟรี 1 มื้อ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 18:
                 bonus = 500;
-                RandomEventText.text = "ระหว่างเดินไปทำงาน มีแบงค์ 500 ลอยมาแปะหน้าฉันเฉยเลยอะไรกัน เนีย";
+                RandomEventText.text = "ระหว่างเดินไปทำงานมีแบงค์ 500 ลอยมาแปะหน้าฉันเฉยเลยอะไรกันเนีย";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
@@ -213,31 +208,31 @@ public class GameEventsManager : MonoBehaviour
 
             case 20:
                 bonus = 2500;
-                RandomEventText.text = "เพื่อนที่ยืมเงินแล้วหาย อยู่ดีๆก็กลับเอาเงินมาคืนสะงั้ล โชคดีๆ";
+                RandomEventText.text = "เพื่อนที่ยืมเงินแล้วหาย อยู่ดีๆก็กลับเอาเงินมาคืนซะงั้น โชคดีๆ";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 21:
                 bonus = 3750;
-                RandomEventText.text = "ปีนี้ฉันได้เงินภาษีคืน หา เรื่องจริงใช่ไหมเนีย";
+                RandomEventText.text = "ปีนี้ฉันได้เงินภาษีคืน หา! เรื่องจริงใช่ไหมเนีย!";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 22:
                 bonus = 7500;
-                RandomEventText.text = "เห้ยฉันสมัครคนละเซียวทันได้เงินจากร้า บาล เยอะเลยว้าว";
+                RandomEventText.text = "เห้ยฉันสมัครคนละเสี้ยวทันได้เงินจาก'ร้าบาล'เยอะเลยว้าว";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 23:
                 bonus = 10000;
-                RandomEventText.text = "ฉันชอบทำอาหาร และดันไปถูกใจพี่ข้างบ้านที่เป็นเชฟ เขาเลยขอซื้อสูตรต่อ สำหรับคนอื่นมันจะอร่อยจริงไหมน้า";
+                RandomEventText.text = "ฉันชอบทำอาหารและดันไปถูกใจพี่ข้างบ้านที่เป็นเชฟ เขาเลยขอซื้อสูตรต่อ สำหรับคนอื่นมันจะอร่อยจริงไหมน้า";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 24:
                 bonus = 25000;
-                RandomEventText.text = "ฉันไม่เคยซื้อหวยนะ แต่คุณแม่ดันซื้อแล้วเอามาให้ฉัน  อะไรนะใบนั้นมันถูกรางวัล ใหญ่หรอ ไม่จริงน้า";
+                RandomEventText.text = "ฉันไม่เคยซื้อหวยนะ แต่คุณแม่ดันซื้อแล้วเอามาให้ฉัน อะไรนะใบนั้นมันถูกรางวัลใหญ่หรอไม่จริงน่า";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
         }
@@ -304,7 +299,6 @@ public class GameEventsManager : MonoBehaviour
         Debug.Log($"Cost or Bonus: {bonus - cost}");
     }
 
-    // Update is called once per frame
     void Update()
     {
         
