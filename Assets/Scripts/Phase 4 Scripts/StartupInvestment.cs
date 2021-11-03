@@ -8,7 +8,8 @@ public class StartupInvestment : MonoBehaviour
     public int budget, bankedMoney;
     public float depositProfitPercentage, bondProfitPercentage, stockProfitPercentage;
     public Text remainingBankedMoneyDisplayer, remainingBudgetDisplayer, nameDisplay;
-    public GameObject TutorialBox;
+    public GameObject TutorialBox, timerWarning;
+    [SerializeField] private Timer timer;
 
     void Start()
     {
@@ -27,6 +28,15 @@ public class StartupInvestment : MonoBehaviour
         else
         {
             TutorialBox.gameObject.SetActive(false);
+        }
+
+        if (GameController.gameturn == 2)
+        {
+            timerWarning.SetActive(true);
+        }
+        else if (GameController.gameturn >= 3)
+        {
+            timer.enabled = true;
         }
 
         remainingBudgetDisplayer.text = budget.ToString("N0") + " บาท";

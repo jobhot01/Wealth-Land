@@ -7,9 +7,10 @@ public class SetupUI : MonoBehaviour
 {
     public Text incomeText, savingsText, nameDisplay;
     public Button nextButton;
-    public GameObject TutorialBox;
+    public GameObject TutorialBox, timerWarning;
     public int income, savings;
     [SerializeField] CalculateSellCards calculateSellCards;
+    [SerializeField] private Timer timer;
 
     void Start()
     {
@@ -28,6 +29,15 @@ public class SetupUI : MonoBehaviour
         else
         {
             TutorialBox.gameObject.SetActive(false);
+        }
+
+        if (GameController.gameturn == 2)
+        {
+            timerWarning.SetActive(true);
+        }
+        else if (GameController.gameturn >= 3)
+        {
+            timer.enabled = true;
         }
         
         UpdateUI();

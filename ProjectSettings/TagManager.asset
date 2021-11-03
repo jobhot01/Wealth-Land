@@ -9,6 +9,7 @@ TagManager:
   - BottomSound
   - MainMenuMusic
   - Deleter
+  - Credit
   layers:
   - Default
   - TransparentFX

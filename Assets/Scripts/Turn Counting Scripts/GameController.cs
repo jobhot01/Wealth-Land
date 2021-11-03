@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public static int gameturn;
     public static int savingsInt;
     public static int mainIncomeInt;
+    public static System.DateTime startTime;
     public Text TurnDisplayer;
     public Text NameDisplay;
     public Text DepositDisplay;
@@ -33,16 +34,21 @@ public class GameController : MonoBehaviour
     float depositFloat;
     float allProfit;
     float mainIncomeFloat;
+    float timer;
     int stock;
     int bond;
     int deposit;
     int investment;
-    int sumThisSceneValues;
     
     void Start()
     {
+        gameturn = PlayerPrefs.GetInt("gameturn");
         gameturn++;
-        PlayerPrefs.GetInt("gameturn");
+        if (gameturn == 1)
+        {
+            startTime = System.DateTime.UtcNow;
+            print("Save Time: " + startTime);
+        }
         PlayerPrefs.SetInt("gameturn", gameturn);
         stock = PlayerPrefs.GetInt("inputStock");
         bond = PlayerPrefs.GetInt("inputBond");

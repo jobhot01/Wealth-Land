@@ -9,7 +9,7 @@ public class CalculateSavings : MonoBehaviour
     public Text accountText, remainingText;
     public int accountValue, remainingValue;
     public bool useSavings = false;
-    int percent;
+    public int percent;
     [SerializeField] OnStartPhase onStartPhase;
 
     public void TestCalculate ()

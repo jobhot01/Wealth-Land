@@ -13,10 +13,12 @@ public class CalculateValue : MonoBehaviour
     int liveEquipment, plantingKit, car, book, craftSet, gadget;
     int liveEquipmentValue, plantingKitValue, carValue, bookValue, craftSetValue, gadgetValue;
     int uncutHappiness;
-    public int[] extraIncomeArray = new int[10] {11915,7260,11445,7494,4948,14610,9448,2478,14490,4754};
-    public int[] happinessArray = new int[10] {60,39,55,39,22,60,48,12,78,28};
-    public int[] energyArray = new int[10] {5,3,5,3,2,6,4,1,6,2};
+    int[] extraIncomeArray = new int[10] {9765,5652,9575,5394,3574,10806,7812,1779,11292,3788};
+    int[] happinessArray = new int[10] {40,27,35,27,14,36,32,8,54,20};
+    int[] energyArray = new int[10] {5,3,5,3,2,6,4,1,6,2};
     public GameObject[] LikedTab;
+    public List<string> selectCard;
+    string clickOccupation;
 
     //Card Index 0:เพาะต้นไม้ขาย
     //Card Index 1:ทำอาหารขาย
@@ -42,6 +44,7 @@ public class CalculateValue : MonoBehaviour
     public void SumValue(int cardIndex)
     {
         //print("Card Index is " + cardIndex);
+        SelectCardList(cardIndex,"Add");
         allExtraIncome = allExtraIncome + extraIncomeArray[cardIndex];
         sumIncome = myIncome + allExtraIncome;
         uncutHappiness = uncutHappiness + happinessArray[cardIndex];
@@ -61,6 +64,7 @@ public class CalculateValue : MonoBehaviour
     public void MinusValue(int cardIndex)
     {
         //print("Card Index " + cardIndex + " is out.");
+        SelectCardList(cardIndex, "Remove");
         allExtraIncome = allExtraIncome - extraIncomeArray[cardIndex];
         sumIncome = myIncome + allExtraIncome;
         uncutHappiness = uncutHappiness - happinessArray[cardIndex];
@@ -142,6 +146,12 @@ public class CalculateValue : MonoBehaviour
 
     public void addItemValue()
     {
+        //for (int i = 0; i < extraIncomeArray.Length; i++)
+        //{
+        //    //itemMoneyText[i].text = extraIncomeArray[i].ToString("N0");
+        //    //print("Item Money " + i + " : " + itemMoneyText[i].text);
+        //    print("Item Money " + i + " : " + extraIncomeArray[i]);
+        //}
         int[] boughtItemArray;
         boughtItemArray = PlayerPrefsX.GetIntArray("allBoughtItem");
         for (int i = 0; i < boughtItemArray.Length; i++)
@@ -331,7 +341,61 @@ public class CalculateValue : MonoBehaviour
         for (int i = 0; i < extraIncomeArray.Length; i++)
         {
             itemMoneyText[i].text = extraIncomeArray[i].ToString("N0");
+            //print("Item Money "+ i + " : " +itemMoneyText[i].text);
         }
 
+    }
+
+    public void SelectCardList(int occupationIndex, string addOrRemove)
+    {
+        switch (occupationIndex)
+        {
+            case 0:
+                clickOccupation = "Plant Trees";
+                break;
+            case 1:
+                clickOccupation = "Cook";
+                break;
+            case 2:
+                clickOccupation = "Drive Service";
+                break;
+            case 3:
+                clickOccupation = "Online Sales";
+                break;
+            case 4:
+                clickOccupation = "Contract Design";
+                break;
+            case 5:
+                clickOccupation = "Part-Time Employees";
+                break;
+            case 6:
+                clickOccupation = "Make DIY Gifts";
+                break;
+            case 7:
+                clickOccupation = "Write a Novel/Cartoon Online";
+                break;
+            case 8:
+                clickOccupation = "Tutor";
+                break;
+            case 9:
+                clickOccupation = "Content Creator";
+                break;
+        }
+        if (addOrRemove == "Add")
+        {
+            print("Add Card");
+            selectCard.Add(clickOccupation);
+        }
+        else if (addOrRemove == "Remove")
+        {
+            for(int i = 0; i < selectCard.Count; i++)
+            {
+                if (selectCard[i] == clickOccupation)
+                {
+                    print("Remove Card");
+                    selectCard.RemoveAt(i);
+                }
+            }
+        }
     }
 }

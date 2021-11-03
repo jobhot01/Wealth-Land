@@ -8,8 +8,9 @@ public class UpdateUI : MonoBehaviour
     public Text extraIncomeText, sumIncomeText, happinessText, energyText, NameDisplay;
     public Button nextButton;
     public int maxEnergy = 7;
-    public GameObject TutorialBox;
+    public GameObject TutorialBox, timerWarning;
     [SerializeField] private CalculateValue calculateValue;
+    [SerializeField] private Timer timer;
 
     void Start()
     {
@@ -20,6 +21,15 @@ public class UpdateUI : MonoBehaviour
         else
         {
             TutorialBox.gameObject.SetActive(false);
+        }
+
+        if (GameController.gameturn == 2)
+        {
+            timerWarning.SetActive(true);
+        }
+        else if (GameController.gameturn >= 3)
+        {
+            timer.enabled = true;
         }
 
         if (LoadScene.playerName == null)

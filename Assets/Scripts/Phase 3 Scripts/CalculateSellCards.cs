@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CalculateSellCards : MonoBehaviour
 {
-    public static int[] itemMoney = new int[36] {1000,1500,2000,1500,1950,2500,1250,1750,2500,1250,2000,2750,25000,
-        47500,80000,2250,3500,4000,75000,120000,175000,750,1500,2450,7500,9000,12500,15000,37500,52500,4500,7500,
-        9750,5500,7500,12500};
+    int[] itemMoney = new int[36] {1000,1500,2000,3000,4000,5000,1250,1750,2500,1250,2000,2750,25000,
+        47500,80000,4500,7000,8000,75000,120000,175000,750,1500,2450,7500,9000,12500,15000,37500,52500,4500,7500,
+        9750,10000,15000,17500};
     public int allItemBuyValue,cardIndex,itemValue;
     public bool updateUI = false;
     [SerializeField] private SetupUI setupUI;

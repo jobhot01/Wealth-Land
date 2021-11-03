@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class SummaryAllValues : MonoBehaviour
 {
@@ -318,6 +319,7 @@ public class SummaryAllValues : MonoBehaviour
 
     public void GoNextTurn()
     {
+        System.DateTime stopTime;
         if ( sumAllValues > 0 )
         {
             CompleteImage.SetActive(true);
@@ -339,6 +341,33 @@ public class SummaryAllValues : MonoBehaviour
                 Debug.Log("Stack has been reset.");
                 if (turn >= 12)
                 {
+                    float allValue = PlayerPrefs.GetFloat("SumAllValues");
+                    int extraIncome = PlayerPrefs.GetInt("StackedExtraIncome");
+                    float stackedProfit = PlayerPrefs.GetInt("StackedProfit");
+                    AnalyticsResult valueAnalytics = Analytics.CustomEvent("CompleteGameAllValue", new Dictionary<string, object>
+                    {
+                        {"Value", allValue},
+                    });
+                    Debug.Log("AnalyticsResult of CompleteGameAllValue of " + allValue + " is " + valueAnalytics);
+                    AnalyticsResult stackedExtraIncomeAnalytics = Analytics.CustomEvent("CompleteGameStackedExtraIncome", new Dictionary<string, object>
+                    {
+                        {"ExtraIncome", extraIncome},
+                    });
+                    Debug.Log("AnalyticsResult of CompleteGameStackedExtraIncome of " + extraIncome + " is " + stackedExtraIncomeAnalytics);
+                    AnalyticsResult stackedProfitAnalytics = Analytics.CustomEvent("CompleteGameStackedProfitTime", new Dictionary<string, object>
+                    {
+                        {"Profit", stackedProfit},
+                    });
+                    Debug.Log("AnalyticsResult of CompleteTime of " + stackedProfit + " is " + stackedProfitAnalytics);
+                    stopTime = System.DateTime.UtcNow;
+                    System.TimeSpan tsa = stopTime - GameController.startTime;
+                    AnalyticsResult finalTimeAnalytics = Analytics.CustomEvent("CompleteTime", new Dictionary<string, object>
+                    {
+                        {"Time", tsa.Seconds.ToString()},
+                    });
+                    Debug.Log("AnalyticsResult of CompleteTime of " + tsa.Seconds.ToString() + " is " + finalTimeAnalytics);
+                    AnalyticsResult completeGame = Analytics.CustomEvent("CompleteGame");
+                    Debug.Log("AnalyticsResult of CompleteGame is " + completeGame);
                     Invoke("GoGameOver", 1.5f);
                 }
                 else
@@ -348,6 +377,16 @@ public class SummaryAllValues : MonoBehaviour
             }
             else
             {
+                if (turn == 1)
+                {
+                    stopTime = System.DateTime.UtcNow;
+                    System.TimeSpan tsf = stopTime - GameController.startTime;
+                    AnalyticsResult firstTimeAnalytics = Analytics.CustomEvent("FirstTurnTime", new Dictionary<string, object>
+                    {
+                        {"Time", tsf.Seconds.ToString()},
+                    });
+                    Debug.Log("AnalyticsResult of FirstTurnTime of " + tsf.Seconds.ToString() + " is " + firstTimeAnalytics);
+                }
                 PlayerPrefs.SetFloat("StackedSumAllValues", stackedSumAllValues);
                 Invoke("LoadNextTurn", 1.5f);
             }

@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class OnStartPhase : MonoBehaviour
 {
     public Text previousSavingsText, incomeText, nameDisplay;
-    public GameObject TutorialBox;
+    public GameObject TutorialBox, timerWarning;
     public int previousSavings, myIncome;
+    [SerializeField] private Timer timer;
 
     void Start()
     {
@@ -21,6 +22,15 @@ public class OnStartPhase : MonoBehaviour
         else
         {
             TutorialBox.gameObject.SetActive(false);
+        }
+
+        if (GameController.gameturn == 2)
+        {
+            timerWarning.SetActive(true);
+        }
+        else if (GameController.gameturn >= 3)
+        {
+            timer.enabled = true;
         }
 
         if (LoadScene.playerName == null)

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class LoadScene : MonoBehaviour
 {
@@ -28,13 +29,14 @@ public class LoadScene : MonoBehaviour
 
     public static string playerHobby, playerGender, playerName;
     public static int randomHobbyValue;
+    public static List<int> purchaseItem;
 
     void Start()
     {
         scene = SceneManager.GetActiveScene();
         audioObject = GameObject.FindWithTag("BottomSound");
-        
-        if ( audioObject == null)
+
+        if (audioObject == null)
         {
             Debug.LogWarning("Audio Object not found!!");
         }
@@ -48,20 +50,19 @@ public class LoadScene : MonoBehaviour
 
     public void GoMainMenu()
     {
-        audioSource.Play();
         SceneManager.LoadScene("Main Menu");
     }
 
     public void BackToMainMenu()
     {
         //PlayerPrefs.SetFloat("Volume", VolumeContoller.musicVolume);
-        audioSource.Play();
         wentOptions = 1;
         SceneManager.LoadScene("Main Menu");
     }
 
     public void RetryNewGame()
     {
+        //purchaseItem.Clear();
         PlayerPrefs.DeleteKey("allSavings");
         PlayerPrefs.DeleteKey("FirstIncome");
         PlayerPrefs.DeleteKey("OnlyProfit");
@@ -80,8 +81,8 @@ public class LoadScene : MonoBehaviour
         PlayerPrefs.DeleteKey("StackedExtraIncome");
         PlayerPrefs.DeleteKey("StackedProfit");
         PlayerPrefs.DeleteKey("StackedSumAllValues");
+        PlayerPrefs.DeleteKey("EventSum");
         //PlayerPrefs.DeleteKey("gameturn");
-        //PlayerPrefs.DeleteKey("WentOption");
         PlayerPrefs.SetInt("gameturn", 0);
         Debug.Log($"Deleted all PlayerPrefs data except Volume.\nSet gameturn to {PlayerPrefs.GetInt("gameturn")}.");
         SceneManager.LoadScene("Main Menu");
@@ -89,9 +90,8 @@ public class LoadScene : MonoBehaviour
 
     public void GoOptionMenu()
     {
-        audioSource.Play();
         wentOptions = 1;
-        PlayerPrefs.SetInt("WentOption",wentOptions);
+        PlayerPrefs.SetInt("WentOption", wentOptions);
         SceneManager.LoadScene("Option");
     }
 
@@ -99,11 +99,10 @@ public class LoadScene : MonoBehaviour
     {
         SceneManager.LoadScene("Credit");
     }
-    
+
     public void GoCharacterSelec()
     {
         //PlayerPrefs.SetFloat("Volume", 0.6f);
-        audioSource.Play();
         wentOptions = PlayerPrefs.GetInt("WentOption");
         if (wentOptions == 0)
         {
@@ -117,39 +116,45 @@ public class LoadScene : MonoBehaviour
 
         SceneManager.LoadScene("CharacterSelec");
     }
-    
+
     public void GoCutscene()
     {
         playerHobby = hobbySelect.hobby;
         playerGender = genderSelect.gender;
         playerName = inputName.name;
+        AnalyticsResult genderAnalytics = Analytics.CustomEvent("PlayerGender", new Dictionary<string, object>
+        {
+            {"Gender", playerGender}
+        });
+        Debug.Log("AnalyticsResult of PlayerGender " + playerGender + "  is " + genderAnalytics);
+        AnalyticsResult hobbyAnalytics = Analytics.CustomEvent("SelectHobby", new Dictionary<string, object>
+        {
+            {"Hobby", playerHobby}
+        });
+        Debug.Log("AnalyticsResult of SelectHobby " + playerHobby + "  is " + hobbyAnalytics);
         randomHobbyValue = Random.Range(10, 16);
-        audioSource.Play();
         SceneManager.LoadScene("Cutscene");
     }
 
     public void GoTutorial()
     {
-        audioSource.Play();
         SceneManager.LoadScene("Tutorial");
     }
 
     public void GoGameplay()
     {
         //print("Name: " + playerName + " Gender: " + playerGender + " Hobby: " + playerHobby + " Hobby Value: " + randomHobbyValue);
-        audioSource.Play();
         SceneManager.LoadScene("Turn Counting");
     }
 
     public void GoLastScene()
     {
-        audioSource.Play();
         SceneManager.LoadScene("Game Over");
     }
 
     public void GoNextPhase()
     {
-        //audioSource.Play();
+        int turn = PlayerPrefs.GetInt("gameturn");
         sceneBuildIndex = scene.buildIndex + 1;
         switch (sceneBuildIndex)
         {
@@ -162,6 +167,15 @@ public class LoadScene : MonoBehaviour
                 PlayerPrefs.SetInt("allIncome", calculateValue.sumIncome);
                 PlayerPrefs.SetInt("myHappiness", calculateValue.happiness);
                 PlayerPrefs.SetInt("ExtraIncome", calculateValue.allExtraIncome);
+                for (int i = 0; i < calculateValue.selectCard.Count; i++)
+                {
+                    AnalyticsResult occupationAnalytics = Analytics.CustomEvent("OccupationSelect", new Dictionary<string, object>
+                    {
+                        {"Turn", turn.ToString()},
+                        {"Occupation",calculateValue.selectCard[i]}
+                    });
+                    Debug.Log("AnalyticsResult of OccupationSelect of " + calculateValue.selectCard[i] + " is " + occupationAnalytics);
+                }
                 break;
             case 7:
                 int sumSavings;
@@ -175,6 +189,12 @@ public class LoadScene : MonoBehaviour
                     PlayerPrefs.SetInt("allIncome", onStartPhase.myIncome);
                 }
                 PlayerPrefs.SetInt("allSavings", sumSavings);
+                AnalyticsResult savingsAnalytics = Analytics.CustomEvent("SavingsPercent", new Dictionary<string, object>
+                    {
+                        {"Turn", turn.ToString()},
+                        {"Percent", calculateSavings.percent}
+                    });
+                Debug.Log("AnalyticsResult of SavingsPercent of " + calculateSavings.percent + " is " + savingsAnalytics);
                 break;
             case 8:
                 PlayerPrefs.SetInt("allIncome", setupUI.income);
@@ -182,10 +202,7 @@ public class LoadScene : MonoBehaviour
                 if (checkSourceMoney.moneySourceCheck == "Income" || checkSourceMoney.moneySourceCheck == "Savings")
                 {
                     int[] boughtCardsArray = setupCard.boughtCards.ToArray();
-                    for (int i = 0; i < boughtCardsArray.Length; i++)
-                    {
-                        print("Buy Card Index: " + boughtCardsArray[i]);
-                    }
+                    CheckSentItem(boughtCardsArray, turn);
                     PlayerPrefsX.SetIntArray("allBoughtItem", boughtCardsArray);
                     //https://wiki.unity3d.com/index.php/ArrayPrefs2
                 }
@@ -208,6 +225,30 @@ public class LoadScene : MonoBehaviour
                     PlayerPrefs.SetInt("inputStock", calculateAllInvestment.stock);
                     PlayerPrefs.SetInt("inputBond", calculateAllInvestment.bond);
                     PlayerPrefs.SetInt("inputDeposit", calculateAllInvestment.deposit);
+                    AnalyticsResult investmentAnalytics = Analytics.CustomEvent("PlayerInvestment", new Dictionary<string, object>
+                    {
+                        {"Turn", turn.ToString()},
+                        {"Investment", calculateAllInvestment.allInvestment}
+                    });
+                    Debug.Log("AnalyticsResult of PlayerInvestment of " + calculateAllInvestment.allInvestment + " is " + investmentAnalytics);
+                    AnalyticsResult stockAnalytics = Analytics.CustomEvent("PlayerStock ", new Dictionary<string, object>
+                    {
+                        {"Turn", turn.ToString()},
+                        {"Stock", calculateAllInvestment.stock}
+                    });
+                    Debug.Log("AnalyticsResult of PlayerStock of " + calculateAllInvestment.stock + " is " + stockAnalytics);
+                    AnalyticsResult bondAnalytics = Analytics.CustomEvent("PlayerBond", new Dictionary<string, object>
+                    {
+                        {"Turn", turn.ToString()},
+                        {"Bond", calculateAllInvestment.bond}
+                    });
+                    Debug.Log("AnalyticsResult of PlayerBond of " + calculateAllInvestment.bond + " is " + bondAnalytics);
+                    AnalyticsResult depositAnalytics = Analytics.CustomEvent("PlayerDeposit", new Dictionary<string, object>
+                    {
+                        {"Turn", turn.ToString()},
+                        {"Deposit", calculateAllInvestment.deposit}
+                    });
+                    Debug.Log("AnalyticsResult of PlayerDeposit of " + calculateAllInvestment.deposit + " is " + depositAnalytics);
                 }
                 else
                 {
@@ -217,7 +258,7 @@ public class LoadScene : MonoBehaviour
                     PlayerPrefs.SetInt("inputDeposit", 0);
                 }
                 break;
-            
+
             case 10:
                 PlayerPrefs.SetInt("EventSum", GameEventsManager.eventSum);
                 Debug.Log("Scene: " + sceneBuildIndex);
@@ -229,5 +270,72 @@ public class LoadScene : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    void CheckSentItem(int[] boughtItem, int turn)
+    {
+        int[] permanentItem = new int[] { 12, 13, 14, 18, 19, 20, 24, 25, 26, 27, 28, 29 };
+        string[] itemName = new string[] {"LiveEquipment1","LiveEquipment2","LiveEquipment3",
+        "Snacks1","Snacks2","Snacks3","HealthEquipment1","HealthEquipment2","HealthEquipment3",
+        "PlantingKit1","PlantingKit2","PlantingKit3","SolarCells1","SolarCells2","SolarCells3",
+        "Fashion1","Fashion2","Fashion3","Car1","Car2","Car3","Book1","Book2","Book3","CraftSet1",
+        "CraftSet2","CraftSet3","Pet1","Pet2","Pet3","Gadget1","Gadget2","Gadget3","Toy1","Toy2",
+        "Toy3"};
+        List<int> checkSameItem = new List<int>();
+        List<string> itemNameToSent = new List<string>();
+        bool toCheck = false;
+        bool noAdd = false;
+        int nameIndex;
+
+        for (int i = 0; i < boughtItem.Length; i++)
+        {
+            for (int j = 0; j < permanentItem.Length; j++)
+            {
+                if (boughtItem[i] == permanentItem[j])
+                {
+                    toCheck = true;
+                }
+            }
+            if (toCheck == true)
+            {
+                checkSameItem.Add(boughtItem[i]);
+                toCheck = false;
+            }
+            else if (toCheck == false)
+            {
+                nameIndex = boughtItem[i];
+                itemNameToSent.Add(itemName[nameIndex]);
+            }
+        }
+        for (int i = 0; i < checkSameItem.Count; i++)
+        {
+            for (int j = 0; j < purchaseItem.Count; j++)
+            {
+                if (checkSameItem[i] == purchaseItem[j])
+                {
+                    noAdd = true;
+                }
+            }
+            if (noAdd == false)
+            {
+                purchaseItem.Add(checkSameItem[i]);
+                nameIndex = checkSameItem[i];
+                itemNameToSent.Add(itemName[nameIndex]);
+            }
+            else if (noAdd == true)
+            {
+                noAdd = false;
+            }
+        }
+        for (int i = 0; i < itemNameToSent.Count; i++)
+        {
+            AnalyticsResult itemAnalytics = Analytics.CustomEvent("ItemSelect", new Dictionary<string, object>
+                        {
+                            {"Turn", turn.ToString()},
+                            {"Item Index",itemNameToSent[i]}
+                        });
+            Debug.Log("AnalyticsResult of ItemSelect of " + itemNameToSent[i] + " is " + itemAnalytics);
+            //print("Buy Card Index: " + boughtCardsArray[i]);
+        }
     }
 }
