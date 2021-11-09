@@ -9,7 +9,7 @@ public class FirstTimeStart : MonoBehaviour
         GameObject[] deleterObject = GameObject.FindGameObjectsWithTag("Deleter");
         if (deleterObject.Length > 1)
         {
-            Destroy(this.gameObject);
+            Destroy(deleterObject[1]);
         }
         else
         {

@@ -8,9 +8,12 @@ public class CheckSourceMoney : MonoBehaviour
     public Toggle incomeToggle, savingsToggle;
     public string moneySourceCheck = "None";
     public bool isToggleOn = false;
+    public GameObject[] itemStamp;
     bool isSwap = false;
     [SerializeField] private CalculateSellCards calculateSellCards;
     [SerializeField] private SetupUI setupUI;
+    [SerializeField] private SetupCard setupCard;
+    [SerializeField] private ClickItemCard[] clickItemCards;
 
     public void CheckIncome()
     {
@@ -30,7 +33,7 @@ public class CheckSourceMoney : MonoBehaviour
             calculateSellCards.updateUI = true;
             moneySourceCheck = "Income";
             isToggleOn = true;
-            //print("Income On");
+            print("Income On");
         }
         else if (incomeToggle.isOn == true && savingsToggle.isOn == true)
         {
@@ -38,7 +41,7 @@ public class CheckSourceMoney : MonoBehaviour
             setupUI.savings = setupUI.savings + calculateSellCards.allItemBuyValue;
             calculateSellCards.updateUI = true;
             moneySourceCheck = "Income";
-            //print("Income Swap");
+            print("Income Swap");
             isSwap = true;
             isToggleOn = true;
             savingsToggle.GetComponent<Toggle>().isOn = false;
@@ -51,7 +54,8 @@ public class CheckSourceMoney : MonoBehaviour
                 calculateSellCards.updateUI = true;
                 moneySourceCheck = "None";
                 isToggleOn = false;
-                //print("Income Off");
+                ResetValueAndStamp();
+                print("Income Off");
             }
             else if (isSwap == true)
             {
@@ -89,12 +93,45 @@ public class CheckSourceMoney : MonoBehaviour
                 calculateSellCards.updateUI = true;
                 moneySourceCheck = "None";
                 isToggleOn = false;
+                ResetValueAndStamp();
                 //print("Savings Off");
             }
             else if (isSwap == true)
             {
                 isSwap = false;
             }
+        }
+    }
+
+    public void ResetValueAndStamp()
+    {
+        bool isPermanentItem = false;
+        for (int i = 0;i < itemStamp.Length; i++)
+        {
+            itemStamp[i].SetActive(false);
+        }
+        for (int i = 0;i < setupCard.boughtCards.Count; i++)
+        {
+            for (int j = 0;j < setupCard.boughtPermanentItem.Count; j++)
+            {
+                if (setupCard.boughtCards[i] == setupCard.boughtPermanentItem[j])
+                {
+                    isPermanentItem = true;
+                }
+            }
+            if (isPermanentItem == false)
+            {
+                setupCard.boughtCards.RemoveAt(i);
+            }
+            else if (isPermanentItem == true)
+            {
+                isPermanentItem = false;
+            }
+        }
+        calculateSellCards.allItemBuyValue = 0;
+        for (int i = 0;i < clickItemCards.Length; i++)
+        {
+            clickItemCards[i].isClick = false;
         }
     }
 }

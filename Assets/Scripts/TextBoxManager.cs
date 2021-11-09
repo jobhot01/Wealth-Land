@@ -9,6 +9,7 @@ public class TextBoxManager : MonoBehaviour
     public GameObject TextImporter;
     public Text SpeechText;
     public Button NextButton;
+    public Button BackButton;
     public TextAsset TextFile;
     public string[] TextLines;
     public int CurrentLine;
@@ -27,6 +28,7 @@ public class TextBoxManager : MonoBehaviour
         }
 
         NextButton.onClick.AddListener(GetInputOnClickHandler);
+        BackButton.onClick.AddListener(GetInputOnClickHandler2);
         //StartCoroutine("SetSize");
     }
 
@@ -34,15 +36,15 @@ public class TextBoxManager : MonoBehaviour
     {
         SpeechText.text = TextLines[CurrentLine];
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            CurrentLine += 1;
-        }
+        // if (Input.GetKeyDown(KeyCode.Return))
+        // {
+        //     CurrentLine += 1;
+        // }
 
-        if (CurrentLine > EndAtLine)
-        {
-            TextImporter.SetActive(false);
-        }
+        // if (CurrentLine > EndAtLine)
+        // {
+        //     TextImporter.SetActive(false);
+        // }
     }
 
     public void GetInputOnClickHandler()
@@ -51,8 +53,18 @@ public class TextBoxManager : MonoBehaviour
 
         if (CurrentLine > EndAtLine)
         {
-            TextImporter.SetActive(false);
-            NextButton.interactable = false;
+            CurrentLine = EndAtLine;
+            //TextImporter.SetActive(false);
+            //NextButton.interactable = false;
+        }
+    }
+
+    public void GetInputOnClickHandler2()
+    {
+        CurrentLine -= 1;
+        if (CurrentLine < 0)
+        {
+            CurrentLine = 0;
         }
     }
 

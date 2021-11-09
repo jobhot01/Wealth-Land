@@ -9,9 +9,11 @@ public class CalculateLastValues : MonoBehaviour
     public Text ProfitDisplay;
     public Text RemainingValueDisplay;
     public Text NameDisplay;
+    public Text TurnDisplay;
     float allValues;
     float stackedProfit;
     int stackedExtraIncome;
+    int turn;
 
     string folderPath = "C:/Users/user/Desktop";
 
@@ -27,6 +29,7 @@ public class CalculateLastValues : MonoBehaviour
 
     void GetValues()
     {
+        turn = PlayerPrefs.GetInt("LastTurn");
         allValues = PlayerPrefs.GetFloat("SumAllValues");
         stackedExtraIncome = PlayerPrefs.GetInt("StackedExtraIncome");
         stackedProfit = PlayerPrefs.GetFloat("StackedProfit");
@@ -58,6 +61,7 @@ public class CalculateLastValues : MonoBehaviour
     void UI_Update()
     {
         NameDisplay.text = LoadScene.playerName.ToString();
+        TurnDisplay.text = turn.ToString();
         ExtraIncomeDisplay.text = stackedExtraIncome.ToString("N0");
         ProfitDisplay.text = stackedProfit.ToString("N0");
         RemainingValueDisplay.text = allValues.ToString("N0") + " บาท";

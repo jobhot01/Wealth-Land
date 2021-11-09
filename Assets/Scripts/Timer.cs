@@ -49,37 +49,15 @@ public class Timer : MonoBehaviour
                 nextButton.interactable = false;
                 Invoke("TimeOut", 2.25f);
             }
-        
-        // if (gameturn <= 1)
-        // {
-        //     Debug.Log("No timer");
-        //     return;
-        // }
-        // else
-        // {
-        //     decreaseTime -= Time.deltaTime;
-        //     if (decreaseTime <= 5)
-        //     {
-        //         timeDisplay.color = Color.red;
-        //     }
-
-        //     if (decreaseTime <= 0)
-        //     {
-        //         decreaseTime = 0;
-        //         timeOutObj.SetActive(true);
-        //         nextButton.interactable = false;
-        //         Invoke("TimeOut", 2.25f);
-        //     }
-        // }
     }
 
     void TimeOut()
     {
-        loadScene.GoNextPhase();
+        loadScene.TimeOut();
     }
 
     void UI_Update()
     {
-        timeDisplay.text = "Time Left: " + decreaseTime.ToString("F0");
+        timeDisplay.text = decreaseTime.ToString("F0");
     }
 }

@@ -1,0 +1,1136 @@
+fileFormatVersion: 2
+guid: 065e7f76a49aa774aab7b6c65ec4d151
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2508051727924216457
+    second: Howto ver2-01_0
+  - first:
+      213: 6267593234139596059
+    second: Howto ver2-01_1
+  - first:
+      213: -8608822804590399483
+    second: Howto ver2-01_2
+  - first:
+      213: -7370800449953321959
+    second: Howto ver2-01_3
+  - first:
+      213: -1230661514982360252
+    second: Howto ver2-01_4
+  - first:
+      213: -7919220573264183879
+    second: Howto ver2-01_5
+  - first:
+      213: -3288897691328126084
+    second: Howto ver2-01_6
+  - first:
+      213: -1255232428047562346
+    second: Howto ver2-01_7
+  - first:
+      213: -6900591688886379875
+    second: Howto ver2-01_8
+  - first:
+      213: -8793512151393230760
+    second: Howto ver2-01_9
+  - first:
+      213: -3836760803960377047
+    second: Howto ver2-01_10
+  - first:
+      213: 3623870724233052177
+    second: Howto ver2-01_11
+  - first:
+      213: -1206273597263780796
+    second: Howto ver2-01_12
+  - first:
+      213: -8713273287190638259
+    second: Howto ver2-01_13
+  - first:
+      213: -3233240999933109435
+    second: Howto ver2-01_14
+  - first:
+      213: -244339652520982252
+    second: Howto ver2-01_15
+  - first:
+      213: 7531385327649501996
+    second: Howto ver2-01_16
+  - first:
+      213: -8710097381715383668
+    second: Howto ver2-01_17
+  - first:
+      213: -2229897885958768585
+    second: Howto ver2-01_18
+  - first:
+      213: -2724937849317532091
+    second: Howto ver2-01_19
+  - first:
+      213: -12946030367550313
+    second: Howto ver2-01_20
+  - first:
+      213: 5294950285898633181
+    second: Howto ver2-01_21
+  - first:
+      213: -1758290594264125242
+    second: Howto ver2-01_22
+  - first:
+      213: -77551037961508054
+    second: Howto ver2-01_23
+  - first:
+      213: -7297354088980343679
+    second: Howto ver2-01_24
+  - first:
+      213: 1348987425162244506
+    second: Howto ver2-01_25
+  - first:
+      213: -43505360230313051
+    second: Howto ver2-01_26
+  - first:
+      213: 2928819937215072331
+    second: Howto ver2-01_27
+  - first:
+      213: -4255571137026735132
+    second: Howto ver2-01_28
+  - first:
+      213: 6439528194730750697
+    second: Howto ver2-01_29
+  - first:
+      213: -6617693784107283437
+    second: Howto ver2-01_30
+  - first:
+      213: 3741624757051310553
+    second: Howto ver2-01_31
+  - first:
+      213: 3122428545965363155
+    second: Howto ver2-01_32
+  - first:
+      213: 1254064246986494626
+    second: Howto ver2-01_33
+  - first:
+      213: 2604121833495950611
+    second: Howto ver2-01_34
+  - first:
+      213: 1623906376898797464
+    second: Howto ver2-01_35
+  - first:
+      213: 6732590031262147198
+    second: Howto ver2-01_36
+  - first:
+      213: 6242296323012491384
+    second: Howto ver2-01_37
+  - first:
+      213: -3708849680288479393
+    second: Howto ver2-01_38
+  - first:
+      213: 8596082915221679214
+    second: Howto ver2-01_39
+  - first:
+      213: 3090011783184709963
+    second: Howto ver2-01_40
+  - first:
+      213: 1307970920592565122
+    second: Howto ver2-01_41
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Howto ver2-01_0
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 6202
+        width: 890
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77db5cedd3c913dd0800000000000000
+      internalID: -2508051727924216457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_1
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 6202
+        width: 890
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b15488dd6d6faf650800000000000000
+      internalID: 6267593234139596059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_2
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 6202
+        width: 890
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5007b1e4541578880800000000000000
+      internalID: -8608822804590399483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_3
+      rect:
+        serializedVersion: 2
+        x: 3724
+        y: 6202
+        width: 893
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91c2e3efa08a5b990800000000000000
+      internalID: -7370800449953321959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_4
+      rect:
+        serializedVersion: 2
+        x: 4995
+        y: 4011
+        width: 6691
+        height: 2484
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44b7bb85fdfcbeee0800000000000000
+      internalID: -1230661514982360252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_5
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 5833
+        width: 890
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd7f90b8d6491290800000000000000
+      internalID: -7919220573264183879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_6
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 5833
+        width: 890
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73e8cd99fc7b52d0800000000000000
+      internalID: -3288897691328126084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_7
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 5833
+        width: 890
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6998ca7d1c4849ee0800000000000000
+      internalID: -1255232428047562346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_8
+      rect:
+        serializedVersion: 2
+        x: 3724
+        y: 5833
+        width: 893
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9a1aeb7b6c2c30a0800000000000000
+      internalID: -6900591688886379875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_9
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 5464
+        width: 890
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8502020d94b27f580800000000000000
+      internalID: -8793512151393230760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_10
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 5458
+        width: 890
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921bcc7706611cac0800000000000000
+      internalID: -3836760803960377047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_11
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 5458
+        width: 890
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11049dd39339a4230800000000000000
+      internalID: 3623870724233052177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_12
+      rect:
+        serializedVersion: 2
+        x: 3724
+        y: 5458
+        width: 893
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444e82ded84724fe0800000000000000
+      internalID: -1206273597263780796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_13
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 5024
+        width: 890
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d411a163c1c341780800000000000000
+      internalID: -8713273287190638259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_14
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 5024
+        width: 890
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b12c5e0783123d0800000000000000
+      internalID: -3233240999933109435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_15
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 5024
+        width: 890
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419c1fe616eeb9cf0800000000000000
+      internalID: -244339652520982252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_16
+      rect:
+        serializedVersion: 2
+        x: 3724
+        y: 5024
+        width: 893
+        height: 223
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2333217d0bd48860800000000000000
+      internalID: 7531385327649501996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_17
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 4438
+        width: 457
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a6bc354948f1780800000000000000
+      internalID: -8710097381715383668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_18
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 4456
+        width: 416
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738780eefafcd01e0800000000000000
+      internalID: -2229897885958768585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_19
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 4438
+        width: 456
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e5960a6731f2ad0800000000000000
+      internalID: -2724937849317532091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_20
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 4456
+        width: 415
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 794d0ba67a102dff0800000000000000
+      internalID: -12946030367550313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_21
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 3823
+        width: 434
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf475e2b317b7940800000000000000
+      internalID: 5294950285898633181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_22
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 3835
+        width: 416
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c0f9f4350c4997e0800000000000000
+      internalID: -1758290594264125242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_23
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 3823
+        width: 434
+        height: 440
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b675aedbb7ceef0800000000000000
+      internalID: -77551037961508054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_24
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 3835
+        width: 415
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 184151e7e179aba90800000000000000
+      internalID: -7297354088980343679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_25
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 3196
+        width: 457
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a91b34b7ae098b210800000000000000
+      internalID: 1348987425162244506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_26
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 3214
+        width: 416
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a395a9fa10756ff0800000000000000
+      internalID: -43505360230313051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_27
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 3196
+        width: 456
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4849c0273245a820800000000000000
+      internalID: 2928819937215072331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_28
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 3214
+        width: 415
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3cd1d099c21f4c0800000000000000
+      internalID: -4255571137026735132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_29
+      rect:
+        serializedVersion: 2
+        x: 4579
+        y: 2663
+        width: 7066
+        height: 1125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2f90866cccd5950800000000000000
+      internalID: 6439528194730750697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_30
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 2575
+        width: 457
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c89fdb09a3924a0800000000000000
+      internalID: -6617693784107283437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_31
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 2593
+        width: 416
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d1c9de74ebece330800000000000000
+      internalID: 3741624757051310553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_32
+      rect:
+        serializedVersion: 2
+        x: 1562
+        y: 2575
+        width: 456
+        height: 451
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3df0ece1838155b20800000000000000
+      internalID: 3122428545965363155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_33
+      rect:
+        serializedVersion: 2
+        x: 2271
+        y: 2593
+        width: 415
+        height: 416
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a2d52fc9c4576110800000000000000
+      internalID: 1254064246986494626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_34
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 800
+        width: 1558
+        height: 1622
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3157d55a203b32420800000000000000
+      internalID: 2604121833495950611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_35
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 789
+        width: 1594
+        height: 1599
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f5b87fe36498610800000000000000
+      internalID: 1623906376898797464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_36
+      rect:
+        serializedVersion: 2
+        x: 3935
+        y: 2048
+        width: 474
+        height: 445
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7267bf66f6fe6d50800000000000000
+      internalID: 6732590031262147198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_37
+      rect:
+        serializedVersion: 2
+        x: 4667
+        y: 2007
+        width: 2115
+        height: 480
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 878f2e3ce6711a650800000000000000
+      internalID: 6242296323012491384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_38
+      rect:
+        serializedVersion: 2
+        x: 7081
+        y: 1823
+        width: 4547
+        height: 729
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f578519bdd4878cc0800000000000000
+      internalID: -3708849680288479393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_39
+      rect:
+        serializedVersion: 2
+        x: 3982
+        y: 899
+        width: 2935
+        height: 674
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6ca79d0edb6b4770800000000000000
+      internalID: 8596082915221679214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_40
+      rect:
+        serializedVersion: 2
+        x: 7081
+        y: 882
+        width: 4547
+        height: 726
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49fe70685de1ea20800000000000000
+      internalID: 3090011783184709963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Howto ver2-01_41
+      rect:
+        serializedVersion: 2
+        x: 9454
+        y: 126
+        width: 2174
+        height: 545
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283e5725f98d62210800000000000000
+      internalID: 1307970920592565122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

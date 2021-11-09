@@ -54,22 +54,7 @@ public class SummaryAllValues : MonoBehaviour
 
     void Start()
     {
-        investment = PlayerPrefs.GetInt("AllInvestment");
-        fristIncome = PlayerPrefs.GetInt("FirstIncome");
-        remainingIncome = PlayerPrefs.GetInt("allIncome");
-        savings = PlayerPrefs.GetInt("allSavings");
-        happiness = PlayerPrefs.GetInt("myHappiness");
-        turn = PlayerPrefs.GetInt("gameturn");
-        deposit = PlayerPrefs.GetInt("inputDeposit");
-        bond = PlayerPrefs.GetInt("inputBond");
-        stock = PlayerPrefs.GetInt("inputStock");
-        eventSum = PlayerPrefs.GetInt("EventSum");
-        extraIncome = PlayerPrefs.GetInt("ExtraIncome");
-        stackedExtraIncome = PlayerPrefs.GetInt("StackedExtraIncome");
-        stackedSumAllValues = PlayerPrefs.GetFloat("StackedSumAllValues");
-        stackedProfit = PlayerPrefs.GetFloat("StackedProfit");
-        profit = PlayerPrefs.GetFloat("OnlyProfit");
-        itemArray = PlayerPrefsX.GetIntArray("allBoughtItem");
+        GetPlayerPrefValues();
         
         if (turn == 1)
         {
@@ -96,18 +81,26 @@ public class SummaryAllValues : MonoBehaviour
         StackExtraIncome();
         SellInvestment();
         UI_Update();
-
-        // Debug.Log( "Investment: " + investment );
-        // Debug.Log( "Budget: " + income );
-        // Debug.Log( "All Income: " + allIncome );
-        // Debug.Log( "Banked Money: " + savings );
-        // Debug.Log( "Happiness: " + happiness );
-        // Debug.Log("Stacked Sum Value: " + stackedSumAllValues);
     }
 
-    void Update()
+    void GetPlayerPrefValues()
     {
-        
+        investment = PlayerPrefs.GetInt("AllInvestment");
+        fristIncome = PlayerPrefs.GetInt("FirstIncome");
+        remainingIncome = PlayerPrefs.GetInt("allIncome");
+        savings = PlayerPrefs.GetInt("allSavings");
+        happiness = PlayerPrefs.GetInt("myHappiness");
+        turn = PlayerPrefs.GetInt("gameturn");
+        deposit = PlayerPrefs.GetInt("inputDeposit");
+        bond = PlayerPrefs.GetInt("inputBond");
+        stock = PlayerPrefs.GetInt("inputStock");
+        eventSum = PlayerPrefs.GetInt("EventSum");
+        extraIncome = PlayerPrefs.GetInt("ExtraIncome");
+        stackedExtraIncome = PlayerPrefs.GetInt("StackedExtraIncome");
+        stackedSumAllValues = PlayerPrefs.GetFloat("StackedSumAllValues");
+        stackedProfit = PlayerPrefs.GetFloat("StackedProfit");
+        profit = PlayerPrefs.GetFloat("OnlyProfit");
+        itemArray = PlayerPrefsX.GetIntArray("allBoughtItem");
     }
 
     void ItemEffects()
@@ -221,7 +214,6 @@ public class SummaryAllValues : MonoBehaviour
     void CalculateFinancialObstacle()
     {
         financialObstacleValue = ( stackedSumAllValues * 0.2f ) * 1.5f + 1500f;
-        //Debug.Log( "Financial Obstacle: " + calFinancialObstacle);
     }
 
     void SumAllIncome()
@@ -241,7 +233,6 @@ public class SummaryAllValues : MonoBehaviour
         else
         {
             emergencyExpenditure = 0;
-            //Debug.Log( "Only Event Cost: " + eventCost );
         }
     }
 
@@ -279,32 +270,17 @@ public class SummaryAllValues : MonoBehaviour
 
             if ( sumAllValues <= 0 )
             {
-                //NextButton.interactable = false;
-                //Invoke("ShowFailImage", 2.5f);
                 FailMusic.SetActive(true);
             }
             else
             {
-                //Invoke("ShowCompleteImage", 5f);
                 CompleteMusic.SetActive(true);
             }
         }
         else
         {
-            //Invoke("ShowCompleteImage", 5f);
             CompleteMusic.SetActive(true);
         }
-    }
-
-    void ShowCompleteImage()
-    {
-        //CompleteImage.SetActive(true);
-    }
-
-    void ShowFailImage()
-    {
-        //FailImage.SetActive(true);
-        //Invoke("GoGameOver", 2.5f);
     }
 
     void LoadNextTurn()
@@ -320,14 +296,13 @@ public class SummaryAllValues : MonoBehaviour
     public void GoNextTurn()
     {
         System.DateTime stopTime;
-        if ( sumAllValues > 0 )
+        if ( sumAllValues >= 0 )
         {
             CompleteImage.SetActive(true);
             NextButton.interactable = false;
             stackedSumAllValues = stackedSumAllValues + sumAllValues;
             Debug.Log("Stacked Value before reset: " + stackedSumAllValues);
-                
-            //PlayerPrefs.SetInt("allIncome", income);
+            
             PlayerPrefs.SetInt("allSavings", savings);
             PlayerPrefs.SetInt("StackedExtraIncome", stackedExtraIncome);
             PlayerPrefs.SetFloat("StackedProfit", stackedProfit);
@@ -337,42 +312,44 @@ public class SummaryAllValues : MonoBehaviour
             {
                 stackedSumAllValues = 0;
                 PlayerPrefs.DeleteKey("StackedSumAllValues");
-                Debug.Log("Reset Stacked Value: " + stackedSumAllValues);
                 Debug.Log("Stack has been reset.");
                 if (turn >= 12)
                 {
                     float allValue = PlayerPrefs.GetFloat("SumAllValues");
                     int extraIncome = PlayerPrefs.GetInt("StackedExtraIncome");
                     float stackedProfit = PlayerPrefs.GetInt("StackedProfit");
-                    AnalyticsResult valueAnalytics = Analytics.CustomEvent("CompleteGameAllValue", new Dictionary<string, object>
+                    AnalyticsResult completeGameAnalytics = Analytics.CustomEvent("CompleteGame", new Dictionary<string, object>
                     {
                         {"Value", allValue},
-                    });
-                    Debug.Log("AnalyticsResult of CompleteGameAllValue of " + allValue + " is " + valueAnalytics);
-                    AnalyticsResult stackedExtraIncomeAnalytics = Analytics.CustomEvent("CompleteGameStackedExtraIncome", new Dictionary<string, object>
-                    {
                         {"ExtraIncome", extraIncome},
+                        {"Profit", stackedProfit}
                     });
-                    Debug.Log("AnalyticsResult of CompleteGameStackedExtraIncome of " + extraIncome + " is " + stackedExtraIncomeAnalytics);
-                    AnalyticsResult stackedProfitAnalytics = Analytics.CustomEvent("CompleteGameStackedProfitTime", new Dictionary<string, object>
-                    {
-                        {"Profit", stackedProfit},
-                    });
-                    Debug.Log("AnalyticsResult of CompleteTime of " + stackedProfit + " is " + stackedProfitAnalytics);
+                    Debug.Log("AnalyticsResult of CompleteGameAllValue of " + allValue + " is " + completeGameAnalytics);
+                    //AnalyticsResult stackedExtraIncomeAnalytics = Analytics.CustomEvent("CompleteGameStackedExtraIncome", new Dictionary<string, object>
+                    //{
+                    //    {"ExtraIncome", extraIncome},
+                    //});
+                    //Debug.Log("AnalyticsResult of CompleteGameStackedExtraIncome of " + extraIncome + " is " + stackedExtraIncomeAnalytics);
+                    //AnalyticsResult stackedProfitAnalytics = Analytics.CustomEvent("CompleteGameStackedProfitTime", new Dictionary<string, object>
+                    //{
+                    //    {"Profit", stackedProfit},
+                    //});
+                    //Debug.Log("AnalyticsResult of CompleteTime of " + stackedProfit + " is " + stackedProfitAnalytics);
                     stopTime = System.DateTime.UtcNow;
                     System.TimeSpan tsa = stopTime - GameController.startTime;
                     AnalyticsResult finalTimeAnalytics = Analytics.CustomEvent("CompleteTime", new Dictionary<string, object>
                     {
-                        {"Time", tsa.Seconds.ToString()},
+                        {"Time", tsa.Seconds.ToString()}
                     });
                     Debug.Log("AnalyticsResult of CompleteTime of " + tsa.Seconds.ToString() + " is " + finalTimeAnalytics);
-                    AnalyticsResult completeGame = Analytics.CustomEvent("CompleteGame");
-                    Debug.Log("AnalyticsResult of CompleteGame is " + completeGame);
-                    Invoke("GoGameOver", 1.5f);
+                    //AnalyticsResult completeGame = Analytics.CustomEvent("CompleteGame");
+                    //Debug.Log("AnalyticsResult of CompleteGame is " + completeGame);
+                    PlayerPrefs.SetInt("LastTurn", turn);
+                    Invoke("GoGameOver", 2.5f);
                 }
                 else
                 {
-                    Invoke("LoadNextTurn", 1.5f);
+                    Invoke("LoadNextTurn", 2.5f);
                 }
             }
             else
@@ -383,53 +360,46 @@ public class SummaryAllValues : MonoBehaviour
                     System.TimeSpan tsf = stopTime - GameController.startTime;
                     AnalyticsResult firstTimeAnalytics = Analytics.CustomEvent("FirstTurnTime", new Dictionary<string, object>
                     {
-                        {"Time", tsf.Seconds.ToString()},
+                        {"Time", tsf.Seconds.ToString()}
                     });
                     Debug.Log("AnalyticsResult of FirstTurnTime of " + tsf.Seconds.ToString() + " is " + firstTimeAnalytics);
                 }
                 PlayerPrefs.SetFloat("StackedSumAllValues", stackedSumAllValues);
-                Invoke("LoadNextTurn", 1.5f);
+                Invoke("LoadNextTurn", 2.5f);
             }
         }
-        else if (sumAllValues <= 0)
+        else if (sumAllValues < 0)
         {
             FailImage.SetActive(true);
+            PlayerPrefs.SetInt("LastTurn", turn);
             PlayerPrefs.SetFloat("StackedProfit", stackedProfit);
             PlayerPrefs.SetInt("StackedExtraIncome", stackedExtraIncome);
             PlayerPrefs.SetFloat("SumAllValues", sumAllValues);
+            AnalyticsResult gameOverAnalytics = Analytics.CustomEvent("GameOver", new Dictionary<string, object>
+                    {
+                        {"Turn", turn},
+                        {"StackedProfit", stackedProfit},
+                        {"StackedExtraIncome", stackedExtraIncome},
+                        {"SumAllValues", sumAllValues}
+                    });
+            Debug.Log("AnalyticsResult of GameOver of " + turn + " is " + gameOverAnalytics);
             NextButton.interactable = false;
-            Invoke("GoGameOver", 1.5f);
+            Invoke("GoGameOver", 2.5f);
         }
-    
-        //if (turn >= 12 )
-        //{
-            // stackedSumAllValues = stackedSumAllValues + sumAllValues;
-            // PlayerPrefs.SetFloat("StackedProfit", stackedProfit);
-            // PlayerPrefs.SetInt("StackedExtraIncome", stackedExtraIncome);
-            // PlayerPrefs.SetFloat("SumAllValues", sumAllValues);
-            // NextButton.interactable = false;
-            // Invoke("GoGameOver", 2.5f);
-        //}
-        //else
-        //{
-            
-        //}
     }
 
     void UI_Update()
     {
         TurnDisplay.text = $"สรุปรายรับ - รายจ่ายของเทิร์นที่ {turn.ToString()}";
-
-        IncomeDisplay.text = remainingIncome.ToString("N0");
-        SavingsDisplay.text = savings.ToString("N0");
-        InvestmentDisplay.text = investment.ToString("N0");
-        AllIncomeDisplay.text = allIncome.ToString("N0");
-
-        MainExpenditureDisplay.text = mainExpenditure.ToString("N0");
-        EmergencyExpenditureDisplay.text = emergencyExpenditure.ToString("N0");
-        FinancialObstacleDisplay.text = financialObstacle.ToString("N0");
-        SumAllExpendituresDisplay.text = allExpenditure.ToString("N0");
+        IncomeDisplay.text = remainingIncome.ToString("N2");
+        SavingsDisplay.text = savings.ToString("N2");
+        InvestmentDisplay.text = investment.ToString("N2");
+        AllIncomeDisplay.text = allIncome.ToString("N2");
+        MainExpenditureDisplay.text = mainExpenditure.ToString("N2");
+        EmergencyExpenditureDisplay.text = emergencyExpenditure.ToString("N2");
+        FinancialObstacleDisplay.text = financialObstacle.ToString("N2");
+        SumAllExpendituresDisplay.text = allExpenditure.ToString("N2");
         NameDisplay.text = LoadScene.playerName.ToString();
-        SumAllValuesDisplay.text = sumAllValues.ToString("N0");
+        SumAllValuesDisplay.text = sumAllValues.ToString("N2");
     }
 }

@@ -20,7 +20,7 @@ public class LoadScene : MonoBehaviour
     [SerializeField] private StartupInvestment startupInvestment;
     [SerializeField] private CheckMoney checkMoney;
     [SerializeField] private CalculateAllInvestment calculateAllInvestment;
-    // [SerializeField] private AudioSource BottomSoundObj;
+    [SerializeField] private AudioController audioController;
     // [SerializeField] private AudioClip BottomSound;
     public GameObject audioObject;
     AudioSource audioSource;
@@ -29,7 +29,6 @@ public class LoadScene : MonoBehaviour
 
     public static string playerHobby, playerGender, playerName;
     public static int randomHobbyValue;
-    public static List<int> purchaseItem;
 
     void Start()
     {
@@ -56,13 +55,14 @@ public class LoadScene : MonoBehaviour
     public void BackToMainMenu()
     {
         //PlayerPrefs.SetFloat("Volume", VolumeContoller.musicVolume);
+        //audioController.enabled = true;
         wentOptions = 1;
+        audioController.enabled = true;
         SceneManager.LoadScene("Main Menu");
     }
 
     public void RetryNewGame()
     {
-        //purchaseItem.Clear();
         PlayerPrefs.DeleteKey("allSavings");
         PlayerPrefs.DeleteKey("FirstIncome");
         PlayerPrefs.DeleteKey("OnlyProfit");
@@ -82,9 +82,11 @@ public class LoadScene : MonoBehaviour
         PlayerPrefs.DeleteKey("StackedProfit");
         PlayerPrefs.DeleteKey("StackedSumAllValues");
         PlayerPrefs.DeleteKey("EventSum");
-        //PlayerPrefs.DeleteKey("gameturn");
-        PlayerPrefs.SetInt("gameturn", 0);
-        Debug.Log($"Deleted all PlayerPrefs data except Volume.\nSet gameturn to {PlayerPrefs.GetInt("gameturn")}.");
+        PlayerPrefs.DeleteKey("LastTurn");
+        PlayerPrefs.DeleteKey("gameturn");
+        //PlayerPrefs.SetInt("gameturn", 0);
+        //float volume = PlayerPrefs.GetFloat("volume");
+        Debug.Log($"Deleted all PlayerPrefs data except Volume.");
         SceneManager.LoadScene("Main Menu");
     }
 
@@ -106,11 +108,12 @@ public class LoadScene : MonoBehaviour
         wentOptions = PlayerPrefs.GetInt("WentOption");
         if (wentOptions == 0)
         {
-            PlayerPrefs.SetFloat("Volume", 0.6f);
+            PlayerPrefs.SetFloat("Volume", 0.35f);
             Debug.Log(wentOptions);
         }
         else if (wentOptions == 1)
         {
+            //audioController.enabled = true;
             Debug.Log("No change");
         }
 
@@ -121,7 +124,7 @@ public class LoadScene : MonoBehaviour
     {
         playerHobby = hobbySelect.hobby;
         playerGender = genderSelect.gender;
-        playerName = inputName.name;
+        playerName = inputName.playerName;
         AnalyticsResult genderAnalytics = Analytics.CustomEvent("PlayerGender", new Dictionary<string, object>
         {
             {"Gender", playerGender}
@@ -267,6 +270,25 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene(sceneBuildIndex);
     }
 
+    public void TimeOut()
+    {
+        sceneBuildIndex = scene.buildIndex + 1;
+        switch (sceneBuildIndex)
+        {
+            case 6:
+                PlayerPrefs.SetInt("allIncome", calculateValue.sumIncome);
+                break;
+
+            case 9:
+                PlayerPrefs.SetInt("AllInvestment", 0);
+                PlayerPrefs.SetInt("inputStock", 0);
+                PlayerPrefs.SetInt("inputBond", 0);
+                PlayerPrefs.SetInt("inputDeposit", 0);
+                break;
+        }
+        SceneManager.LoadScene(sceneBuildIndex);
+    }
+
     public void Exit()
     {
         Application.Quit();
@@ -286,6 +308,21 @@ public class LoadScene : MonoBehaviour
         bool toCheck = false;
         bool noAdd = false;
         int nameIndex;
+        List<int> purchaseItem = new List<int>();
+        int[] purchasePermanentItem;
+
+        if (turn == 1)
+        {
+            PlayerPrefs.DeleteKey("PurchaseItemAlready");
+        }
+        else
+        {
+            purchasePermanentItem = PlayerPrefsX.GetIntArray("PurchaseItemAlready");
+            for (int i = 0; i < purchasePermanentItem.Length; i++)
+            {
+                purchaseItem.Add(purchasePermanentItem[i]);
+            }
+        }
 
         for (int i = 0; i < boughtItem.Length; i++)
         {
@@ -337,5 +374,6 @@ public class LoadScene : MonoBehaviour
             Debug.Log("AnalyticsResult of ItemSelect of " + itemNameToSent[i] + " is " + itemAnalytics);
             //print("Buy Card Index: " + boughtCardsArray[i]);
         }
+        PlayerPrefsX.SetIntArray("PurchaseItemAlready", purchaseItem.ToArray());
     }
 }

@@ -8,9 +8,9 @@ public class CalculateAllInvestment : MonoBehaviour
     public InputField stockInputField, bondInputField, depositInputField;
     public Text remainingBankedMoneyDisplayer, remainingBudgetDisplayer;
     public Button continueButton;
-    string plusOrMinus;
+    public string plusOrMinus;
     public int stock, bond, deposit, allInvestment;
-    int beforeStock, beforeBond, beforeDeposit, difference;
+    public int beforeStock, beforeBond, beforeDeposit, difference;
     [SerializeField] private StartupInvestment startupInvestment;
     [SerializeField] private CheckMoney checkMoney;
 
@@ -73,12 +73,14 @@ public class CalculateAllInvestment : MonoBehaviour
             {
                 startupInvestment.budget = startupInvestment.budget - difference;
                 remainingBudgetDisplayer.text = startupInvestment.budget.ToString("N0") + " บาท";
+                //print("Budget Minus");
                 plusOrMinus = "None";
             }
             else if (plusOrMinus == "Plus")
             {
                 startupInvestment.budget = startupInvestment.budget + difference;
                 remainingBudgetDisplayer.text = startupInvestment.budget.ToString("N0") + " บาท";
+                //print("Budget Plus");
                 plusOrMinus = "None";
             }
             
@@ -90,12 +92,14 @@ public class CalculateAllInvestment : MonoBehaviour
             {
                 startupInvestment.bankedMoney = startupInvestment.bankedMoney - difference;
                 remainingBankedMoneyDisplayer.text = startupInvestment.bankedMoney.ToString("N0") + " บาท";
+                //print("BankedMoneyt Minus");
                 plusOrMinus = "None";
             }
             else if (plusOrMinus == "Plus")
             {
                 startupInvestment.bankedMoney = startupInvestment.bankedMoney + difference;
                 remainingBankedMoneyDisplayer.text = startupInvestment.bankedMoney.ToString("N0") + " บาท";
+                //print("BankedMoney Plus");
                 plusOrMinus = "None";
             }
 

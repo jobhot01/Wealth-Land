@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class AudioController : MonoBehaviour
 {
@@ -18,14 +17,18 @@ public class AudioController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         
         //Set volume
-        musicVolume = PlayerPrefs.GetFloat("Volume");
+        int wentOption = PlayerPrefs.GetInt("WentOption");
+        Debug.Log("Went Option " + wentOption);
+        if (wentOption == 0)
+        {
+            musicVolume = 0.35f;
+        }
+        else
+        {
+            musicVolume = PlayerPrefs.GetFloat("Volume");
+        }
+        audioSource.volume = musicVolume;
         // Debug.Log("VolumePP: " + PlayerPrefs.GetFloat("Volume"));
         // Debug.Log("Volume: " + musicVolume);
-        audioSource.volume = musicVolume;
-    }
-
-    void Update()
-    {
-        
     }
 }

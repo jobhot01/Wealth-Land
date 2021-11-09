@@ -10,6 +10,7 @@ public class SetupCard : MonoBehaviour
     public List<int> boughtCards = new List<int>();
     public List<int> alrealySpawnCards = new List<int>();
     public List<int> choseCards = new List<int>();
+    public List<int> boughtPermanentItem = new List<int>();
 
     int cardSpawn, activeSpawn;
     bool alreadyUsed = false;
@@ -27,6 +28,7 @@ public class SetupCard : MonoBehaviour
                 if (beforeBoughtCards[i] == permanentItem[k])
                 {
                     boughtCards.Add(beforeBoughtCards[i]);
+                    boughtPermanentItem.Add(beforeBoughtCards[i]);
                 }
             } 
         }

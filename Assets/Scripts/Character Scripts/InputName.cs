@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class InputName : MonoBehaviour
 {
     public InputField nameInput;
-    public string name;
+    public string playerName;
     [SerializeField] private CheckAllCharacterScripts checkAllCharacterScripts;
 
     public void UpdateName()
     {
-        name = nameInput.text;
-        //print("Name: " + name);
+        playerName = nameInput.text;
+        print("Name: " + playerName);
         checkAllCharacterScripts.UpdateButton();
     }
 }

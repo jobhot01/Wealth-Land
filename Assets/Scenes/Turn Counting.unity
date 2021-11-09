@@ -1272,10 +1272,10 @@ RectTransform:
   m_Father: {fileID: 732164138}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 273.9, y: 162.2}
-  m_SizeDelta: {x: -641.5928, y: -404.42575}
+  m_AnchoredPosition: {x: -132.6, y: -66}
+  m_SizeDelta: {x: 158.40723, y: 45.57425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774454323
 MonoBehaviour:
@@ -1666,7 +1666,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 340, y: -181}
+  m_AnchoredPosition: {x: 352.7, y: -155.6}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &928446816
@@ -2255,6 +2255,7 @@ MonoBehaviour:
   startupInvestment: {fileID: 0}
   checkMoney: {fileID: 0}
   calculateAllInvestment: {fileID: 0}
+  audioController: {fileID: 0}
   audioObject: {fileID: 0}
 --- !u!1 &1588443390
 GameObject:

@@ -19,12 +19,20 @@ public class CalculateSavings : MonoBehaviour
         {
             useSavings = true;
         }
-        else if (percent <= 0)
+        else if (percent <= 0 || percentInput.text != "")
         {
             useSavings = false;
+            //print("Good");
         }
         accountValue = onStartPhase.myIncome * percent / 100;
-        remainingValue = onStartPhase.myIncome - accountValue;
+        if (percentInput.text != "") 
+        {
+            remainingValue = onStartPhase.myIncome - accountValue;
+        }
+        else
+        {
+            remainingValue = 0;
+        }
         accountText.text = accountValue.ToString("N0") + "      บาท";
         remainingText.text = remainingValue.ToString("N0") + "      บาท";
     }

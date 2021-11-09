@@ -16,6 +16,20 @@ public class CheckAllCharacterScripts : MonoBehaviour
         nextButton.GetComponent<Button>().interactable = false;
     }
 
+    void Update()
+    {
+        if (hobbySelect.hobby != "" && genderSelect.gender != "" && inputName.playerName != "")
+        {
+            nextButton.GetComponent<Image>().color = new Color(255, 255, 255, 1);
+            nextButton.GetComponent<Button>().interactable = true;
+        }
+        else
+        {
+            nextButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
+            nextButton.GetComponent<Button>().interactable = false;
+        }
+    }
+
     public void UpdateButton()
     {
         if(hobbySelect.hobby != "" && genderSelect.gender != "" && inputName.name != "")

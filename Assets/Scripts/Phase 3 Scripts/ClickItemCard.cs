@@ -5,7 +5,7 @@ using UnityEngine;
 public class ClickItemCard : MonoBehaviour
 {
     int cardSelectIndex;
-    bool isClick = false;
+    [SerializeField] public bool isClick = false;
     public GameObject stamp;
     public AudioSource stampSound;
     [SerializeField] private CalculateSellCards calculateSellCards;
@@ -37,7 +37,8 @@ public class ClickItemCard : MonoBehaviour
     {
             if (isClick == false && checkSourceMoney.isToggleOn == true)
             {
-                //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.6f);
+            //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 0.6f);
+                print(gameObject.name + " Is Click");
                 stamp.SetActive(true);
                 stampSound.Play();
                 checkPlaceIndex();
@@ -47,7 +48,8 @@ public class ClickItemCard : MonoBehaviour
             else if (isClick == true && checkSourceMoney.isToggleOn == true)
             {
 
-                //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
+            //GetComponent<SpriteRenderer>().color = new Color(255, 255, 255, 1);
+                print(gameObject.name + " Isn't Click");
                 stamp.SetActive(false);
                 checkPlaceIndex();
                 calculateSellCards.undoBuyItem(cardSelectIndex);

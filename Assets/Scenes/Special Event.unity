@@ -968,10 +968,10 @@ RectTransform:
   m_Father: {fileID: 651363118}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 245, y: 179}
-  m_SizeDelta: {x: -641.5928, y: -404.42575}
+  m_AnchoredPosition: {x: -115, y: -49}
+  m_SizeDelta: {x: 158.40723, y: 45.57425}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &863660282
 MonoBehaviour:
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 1337291029}
   - component: {fileID: 1337291028}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Male Mascot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5550324999050368943, guid: 5e486758d747bf8428f44276acab9559,
+  m_Sprite: {fileID: -2673066520084705247, guid: 5e486758d747bf8428f44276acab9559,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1494,6 +1494,7 @@ MonoBehaviour:
   startupInvestment: {fileID: 0}
   checkMoney: {fileID: 0}
   calculateAllInvestment: {fileID: 0}
+  audioController: {fileID: 0}
   audioObject: {fileID: 0}
 --- !u!1 &1464692747
 GameObject:

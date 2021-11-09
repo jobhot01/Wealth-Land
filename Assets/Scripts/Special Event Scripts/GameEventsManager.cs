@@ -110,7 +110,7 @@ public class GameEventsManager : MonoBehaviour
             
             case 1: 
                 cost = 500;
-                RandomEventText.text = "ดูสัตว์พวกนั้นสิน่ารักจัง โอ๊ย! นกกระจอกเทศตัวนี้มันอะไรเนียจิ๊กหัวฉันซะเลือดออกเลย!";
+                RandomEventText.text = "ดูสัตว์พวกนั้นสิน่ารักจัง โอ๊ย! นกกระจอกเทศตัวนี้มันอะไรเนียจิกหัวฉันซะเลือดออกเลย!";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
@@ -287,7 +287,7 @@ public class GameEventsManager : MonoBehaviour
                 break;
             
             case 7:
-                EventText.text = "เทิร์นต่อไปต้องจ่ายหนี้แล้วสินะ...เอ้า! ฮีบเข้าไว้นะตัวฉัน!";
+                EventText.text = "เทิร์นต่อไปต้องจ่ายหนี้แล้วสินะ...เอ้า! ฮึบเข้าไว้นะตัวฉัน!";
                 break;
 
             case 8:

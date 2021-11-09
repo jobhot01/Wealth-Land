@@ -35,7 +35,7 @@ public class HobbySelect : MonoBehaviour
         plantButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[0].SetActive(true);
         hobby = "Plant";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectArt()
@@ -45,7 +45,7 @@ public class HobbySelect : MonoBehaviour
         artButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[1].SetActive(true);
         hobby = "Art";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectFood()
@@ -55,7 +55,7 @@ public class HobbySelect : MonoBehaviour
         foodButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[2].SetActive(true);
         hobby = "Food";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectReading()
@@ -65,7 +65,7 @@ public class HobbySelect : MonoBehaviour
         readButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[3].SetActive(true);
         hobby = "Reading";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectComputer()
@@ -75,7 +75,7 @@ public class HobbySelect : MonoBehaviour
         computerButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[4].SetActive(true);
         hobby = "Computer";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectMaking()
@@ -85,7 +85,7 @@ public class HobbySelect : MonoBehaviour
         makingButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[5].SetActive(true);
         hobby = "Making";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectWorkout()
@@ -95,7 +95,7 @@ public class HobbySelect : MonoBehaviour
         workoutButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[6].SetActive(true);
         hobby = "Workout";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 
     public void selectTravel()
@@ -105,6 +105,6 @@ public class HobbySelect : MonoBehaviour
         travelButton.GetComponent<Image>().color = new Color(255, 255, 255, 0.6f);
         stamp[7].SetActive(true);
         hobby = "Travel";
-        checkAllCharacterScripts.UpdateButton();
+        //checkAllCharacterScripts.UpdateButton();
     }
 }

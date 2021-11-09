@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class CalculateValue : MonoBehaviour
 {
-    public Text incomeText, savingsText;
-    public Text[] itemMoneyText;
-    public Text[] itemHappyText;
+    public Text incomeText, savingsText,sumIncomeText;
+    //public Text[] itemMoneyText;
+    public GameObject[] itemMoneyText;
+    //public Text[] itemHappyText;
+    public GameObject[] itemHappyText;
     public bool changeValue = false;
     public int myIncome, mySavings, allExtraIncome,sumIncome,happiness,usedEnergy;
     int liveEquipment, plantingKit, car, book, craftSet, gadget;
@@ -37,6 +39,8 @@ public class CalculateValue : MonoBehaviour
         mySavings = PlayerPrefs.GetInt("allSavings");
         incomeText.text = "รายได้ประจำ          "+ myIncome.ToString("N0") + "    บาท";
         savingsText.text = "เงินเก็บ                  "+ mySavings.ToString("N0") + "    บาท";
+        sumIncome = myIncome;
+        sumIncomeText.text = "รวม                      " + sumIncome.ToString("N0") + "    บาท";
         addHobbyValue();
         addItemValue();
     }
@@ -140,7 +144,8 @@ public class CalculateValue : MonoBehaviour
         }
         for (int i = 0; i < happinessArray.Length; i++)
         {
-            itemHappyText[i].text = happinessArray[i].ToString("N0");
+            //itemHappyText[i].text = happinessArray[i].ToString("N0");
+            itemHappyText[i].GetComponent<TextMesh>().text = happinessArray[i].ToString("N0");
         }
     }
 
@@ -340,7 +345,8 @@ public class CalculateValue : MonoBehaviour
 
         for (int i = 0; i < extraIncomeArray.Length; i++)
         {
-            itemMoneyText[i].text = extraIncomeArray[i].ToString("N0");
+            //itemMoneyText[i].text = extraIncomeArray[i].ToString("N0");
+            itemMoneyText[i].GetComponent<TextMesh>().text = extraIncomeArray[i].ToString("N0");
             //print("Item Money "+ i + " : " +itemMoneyText[i].text);
         }
 
