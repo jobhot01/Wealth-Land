@@ -15,7 +15,7 @@ public class CalculateLastValues : MonoBehaviour
     int stackedExtraIncome;
     int turn;
 
-    string folderPath = "C:/Users/user/Desktop";
+    //string folderPath = "C:/Users/user/Desktop";
 
 
 
@@ -24,7 +24,8 @@ public class CalculateLastValues : MonoBehaviour
         GetValues();
         NoMinusValues();
         UI_Update();
-        ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(folderPath, "Result.png"));
+        //CaptureScreenshot();
+        //ScreenCapture.CaptureScreenshot(System.IO.Path.Combine(folderPath, "Result.png"));
     }
 
     void GetValues()
@@ -65,5 +66,26 @@ public class CalculateLastValues : MonoBehaviour
         ExtraIncomeDisplay.text = stackedExtraIncome.ToString("N0");
         ProfitDisplay.text = stackedProfit.ToString("N0");
         RemainingValueDisplay.text = allValues.ToString("N0") + " บาท";
+    }
+
+    void CaptureScreenshot()
+    {
+        StartCoroutine(CaptureScreenshotCRT());
+    }
+
+    IEnumerator CaptureScreenshotCRT()
+    {
+        yield return new WaitForEndOfFrame();
+        string path = Application.persistentDataPath + "/Screenshot" + Time.frameCount + ".png";
+        Texture2D screenImage = new Texture2D(Screen.width, Screen.height);
+        //Get Image from screen
+        screenImage.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
+        screenImage.Apply();
+        //Convert to png
+        byte[] imageBytes = screenImage.EncodeToPNG();
+
+        //Save image to file
+        System.IO.File.WriteAllBytes(path, imageBytes);
+        //print("Test");
     }
 }

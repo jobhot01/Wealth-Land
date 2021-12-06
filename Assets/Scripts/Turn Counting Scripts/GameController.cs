@@ -60,26 +60,27 @@ public class GameController : MonoBehaviour
         depositProfitPercentage = PlayerPrefs.GetFloat("randomDeposit");
         allValues = PlayerPrefs.GetFloat("SumAllValues");
         Debug.Log("All Values: " + allValues);
+        Debug.Log("Bond " + bond);
+        Debug.Log("Stock " + stock);
+        Debug.Log("Deposit " + deposit);
         
         if (LoadScene.playerName == null)
         {
-            LoadScene.playerName = "No name detected";
+            LoadScene.playerName = "No Name";
         }
 
         CalculateProfit();
         CalculateInflation();
-        savingsFloat = (allValues * inflationPercent) + profitDifferent ;
+        savingsFloat = (allValues * inflationPercent) + profitDifferent;
         IncreaseMainIncome();
         FinancialObstacleExampleChecking();
         CalculateEstExpenditure();
         CovertFloatToInt();
-        ResetAllValues();
-        UI_Update();
     }
 
     void Update()
     {
-        
+        UI_Update();
     }
 
     void FinancialObstacleExampleChecking()
@@ -131,21 +132,6 @@ public class GameController : MonoBehaviour
         Debug.Log("Inflation: " + inflationPercent + "%");
     }
 
-    void ResetAllValues()
-    {
-        if( gameturn <= 1 )
-        {
-            savingsInt = 0;
-            deposit = 0;
-            bond = 0;
-            stock = 0;
-            investment = 0;
-            profitDifferent = 0;
-            mainIncomeInt = 15000;
-            Debug.Log("Reset savings and all investments");
-        }
-    }
-
     void CovertFloatToInt()
     {
         savingsInt = Mathf.RoundToInt( savingsFloat );
@@ -164,7 +150,7 @@ public class GameController : MonoBehaviour
             ProfitDisplay.color = Color.red;
         }
         
-        TurnDisplayer.text = $"TURNS {gameturn.ToString()}";
+        TurnDisplayer.text = $"TURNS {gameturn}";
         DepositDisplay.text = depositFloat.ToString("N0");
         BondDisplay.text = bondFloat.ToString("N0");
         StockDisplay.text = stockFloat.ToString("N0");

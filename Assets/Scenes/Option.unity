@@ -425,7 +425,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4299877736645340067, guid: e51c14a6d6c265f4595e4e5f35bc2933,
+  m_Sprite: {fileID: -4299877736645340067, guid: 0992372fbcc6b6340b230d29595c9e27,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -557,7 +557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6791508428369796239, guid: e51c14a6d6c265f4595e4e5f35bc2933,
+  m_Sprite: {fileID: -6791508428369796239, guid: 0992372fbcc6b6340b230d29595c9e27,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1321,7 +1321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6268721394031566645, guid: e51c14a6d6c265f4595e4e5f35bc2933,
+  m_Sprite: {fileID: 6268721394031566645, guid: 0992372fbcc6b6340b230d29595c9e27,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1551,7 +1551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1353338424
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -4299877736645340067, guid: e51c14a6d6c265f4595e4e5f35bc2933,
+  m_Sprite: {fileID: -4299877736645340067, guid: 0992372fbcc6b6340b230d29595c9e27,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1910,7 +1910,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Volume
+  m_Text: "\u0E23\u0E30\u0E14\u0E31\u0E1A\u0E40\u0E2A\u0E35\u0E22\u0E07"
 --- !u!222 &1537394390
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8452195525703576255, guid: e51c14a6d6c265f4595e4e5f35bc2933,
+  m_Sprite: {fileID: 8452195525703576255, guid: 0992372fbcc6b6340b230d29595c9e27,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0

@@ -20,6 +20,7 @@ public class GenderSelect : MonoBehaviour
         womanButton.GetComponent<Image>().color = new Color(255, 255, 255, 1);
         manStamp.SetActive(true);
         womanStamp.SetActive(false);
+        PlayerPrefs.SetString("Gender",gender);
         //checkAllCharacterScripts.UpdateButton();
     }
 
@@ -32,6 +33,7 @@ public class GenderSelect : MonoBehaviour
         manButton.GetComponent<Image>().color = new Color(255, 255, 255, 1);
         womanStamp.SetActive(true);
         manStamp.SetActive(false);
+        PlayerPrefs.SetString("Gender", gender);
         //checkAllCharacterScripts.UpdateButton();
     }
 }

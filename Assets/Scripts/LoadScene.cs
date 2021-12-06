@@ -61,6 +61,11 @@ public class LoadScene : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
+    public void GoExtra()
+    {
+        SceneManager.LoadScene("Extra");
+    }
+
     public void RetryNewGame()
     {
         PlayerPrefs.DeleteKey("allSavings");
@@ -83,16 +88,15 @@ public class LoadScene : MonoBehaviour
         PlayerPrefs.DeleteKey("StackedSumAllValues");
         PlayerPrefs.DeleteKey("EventSum");
         PlayerPrefs.DeleteKey("LastTurn");
+        PlayerPrefs.DeleteKey("Gender");
         PlayerPrefs.DeleteKey("gameturn");
-        //PlayerPrefs.SetInt("gameturn", 0);
-        //float volume = PlayerPrefs.GetFloat("volume");
         Debug.Log($"Deleted all PlayerPrefs data except Volume.");
         SceneManager.LoadScene("Main Menu");
     }
 
     public void GoOptionMenu()
     {
-        wentOptions = 1;
+        wentOptions = 1; // 1 = Ture, 0 = False
         PlayerPrefs.SetInt("WentOption", wentOptions);
         SceneManager.LoadScene("Option");
     }
@@ -104,7 +108,6 @@ public class LoadScene : MonoBehaviour
 
     public void GoCharacterSelec()
     {
-        //PlayerPrefs.SetFloat("Volume", 0.6f);
         wentOptions = PlayerPrefs.GetInt("WentOption");
         if (wentOptions == 0)
         {
@@ -113,7 +116,6 @@ public class LoadScene : MonoBehaviour
         }
         else if (wentOptions == 1)
         {
-            //audioController.enabled = true;
             Debug.Log("No change");
         }
 
@@ -153,6 +155,11 @@ public class LoadScene : MonoBehaviour
     public void GoLastScene()
     {
         SceneManager.LoadScene("Game Over");
+    }
+
+    public void GoEndCutscene()
+    {
+        SceneManager.LoadScene("EndCutscene");
     }
 
     public void GoNextPhase()

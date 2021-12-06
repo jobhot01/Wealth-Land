@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
-    public Sprite[] TutorialSprite;
+    public Sprite[] MaleTutorialSprite;
+    public Sprite[] FemaleTutorialSprite;
     public Image TutorialDisplay;
     public Button NextButton;
     public LoadScene loadScene;
     public GameObject TutorialManagerObject;
     int currentSprite;
     int lastSprite;
+    string gender;
 
     void Start()
     {
+        gender = PlayerPrefs.GetString("Gender");
+        
         if (lastSprite == 0)
         {
-            lastSprite = TutorialSprite.Length - 1;
+            lastSprite = MaleTutorialSprite.Length - 1;
         }
 
         NextButton.onClick.AddListener(GetInputOnClickHandler);
@@ -25,7 +29,27 @@ public class TutorialManager : MonoBehaviour
 
     void Update()
     {
-        TutorialDisplay.sprite = TutorialSprite[currentSprite];
+        GetGender();
+    }
+
+    void GetGender()
+    {
+        //if (gender == null)
+        //{
+        //    gender = "Male";
+        //    return;
+        //}
+        
+        switch (gender)
+        {
+            case "Male":
+                TutorialDisplay.sprite = MaleTutorialSprite[currentSprite];
+                break;
+
+            case "Female":
+                TutorialDisplay.sprite = FemaleTutorialSprite[currentSprite];
+                break;
+        }
     }
 
     public void GetInputOnClickHandler()

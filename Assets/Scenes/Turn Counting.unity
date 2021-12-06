@@ -1664,10 +1664,10 @@ RectTransform:
   m_Father: {fileID: 732164138}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 352.7, y: -155.6}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -48, y: 54}
+  m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &928446816
 MonoBehaviour:
@@ -2810,6 +2810,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d5cf4647e7b1494394942fbd831bb3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  femaleCartoonHead: {fileID: 5961779541271195640, guid: b3d04a42864ec33418803bf0bb0489cf,
+    type: 3}
+  maleCartoonHead: {fileID: -2085372354054783106, guid: b3d04a42864ec33418803bf0bb0489cf,
+    type: 3}
+  cartoonHeadDisplay: {fileID: 2026740796}
+  gender: 
 --- !u!1 &2034277066
 GameObject:
   m_ObjectHideFlags: 0

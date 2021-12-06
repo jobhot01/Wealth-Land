@@ -20,6 +20,12 @@ TextureImporter:
   - first:
       213: 608625827048473154
     second: assets_Item 4_5
+  - first:
+      213: -5548805163447134774
+    second: assets_Item 4_6
+  - first:
+      213: 7616873013706256636
+    second: assets_Item 4_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -132,10 +138,10 @@ TextureImporter:
       name: assets_Item 4_0
       rect:
         serializedVersion: 2
-        x: 483
-        y: 3877
-        width: 1582
-        height: 2203
+        x: 466
+        y: 4023
+        width: 1594
+        height: 2215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +159,10 @@ TextureImporter:
       name: assets_Item 4_1
       rect:
         serializedVersion: 2
-        x: 2698
-        y: 3877
-        width: 1576
-        height: 2203
+        x: 2775
+        y: 4023
+        width: 1593
+        height: 2215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,10 +180,10 @@ TextureImporter:
       name: assets_Item 4_2
       rect:
         serializedVersion: 2
-        x: 5054
-        y: 3877
-        width: 1576
-        height: 2203
+        x: 5083
+        y: 4023
+        width: 1588
+        height: 2215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,10 +201,10 @@ TextureImporter:
       name: assets_Item 4_3
       rect:
         serializedVersion: 2
-        x: 7304
-        y: 3877
-        width: 1581
-        height: 2203
+        x: 7392
+        y: 4023
+        width: 1588
+        height: 2215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +222,10 @@ TextureImporter:
       name: assets_Item 4_4
       rect:
         serializedVersion: 2
-        x: 9566
-        y: 3877
-        width: 1581
-        height: 2203
+        x: 9701
+        y: 4023
+        width: 1588
+        height: 2215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -237,10 +243,10 @@ TextureImporter:
       name: assets_Item 4_5
       rect:
         serializedVersion: 2
-        x: 483
-        y: 800
-        width: 1582
-        height: 2203
+        x: 466
+        y: 548
+        width: 1594
+        height: 2215
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,6 +256,48 @@ TextureImporter:
       bones: []
       spriteID: 2424a5e07f5427800800000000000000
       internalID: 608625827048473154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_Item 4_6
+      rect:
+        serializedVersion: 2
+        x: 2939
+        y: 2324
+        width: 7424
+        height: 638
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac551e84a1faef2b0800000000000000
+      internalID: -5548805163447134774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets_Item 4_7
+      rect:
+        serializedVersion: 2
+        x: 2927
+        y: 1333
+        width: 7424
+        height: 645
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf0783966a194b960800000000000000
+      internalID: 7616873013706256636
       vertices: []
       indices: 
       edges: []

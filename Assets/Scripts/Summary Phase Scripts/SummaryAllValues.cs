@@ -70,11 +70,11 @@ public class SummaryAllValues : MonoBehaviour
         FailImage.SetActive(false);
         
         CalculateEmergencyExpenditureChance();
-        SumAllIncome();
+        ItemEffects();
         CalculateFinancialObstacle();
         FinancialObstacleChecking();
-        ItemEffects();
         CalculateEventSummary();
+        SumAllIncome();
         SumAllExpenditures();
         CalculateAllValues();
         StackingProfit();
@@ -178,10 +178,12 @@ public class SummaryAllValues : MonoBehaviour
         if (eventSum >= 0)
         {
             eventIncome = eventSum;
+            Debug.Log("Event Income: " + eventIncome);
         }
         else if (eventSum < 0)
         {
             eventCost = eventSum * -1;
+            Debug.Log("Event Cost: " + eventCost);
         }
     }
 
@@ -218,7 +220,7 @@ public class SummaryAllValues : MonoBehaviour
 
     void SumAllIncome()
     {
-        remainingIncome += eventIncome;
+        remainingIncome = remainingIncome + eventIncome;
         allIncome = remainingIncome + savings + investment;
     }
 
@@ -262,20 +264,7 @@ public class SummaryAllValues : MonoBehaviour
     {
         if ( sumAllValues <= 0 )
         {
-            sumAllValues += (float)investment * 0.95f;
-            PlayerPrefs.SetInt("AllInvestment", 0);
-            PlayerPrefs.SetInt("inputStock", 0);
-            PlayerPrefs.SetInt("inputBond", 0);
-            PlayerPrefs.SetInt("inputDeposit", 0);
-
-            if ( sumAllValues <= 0 )
-            {
-                FailMusic.SetActive(true);
-            }
-            else
-            {
-                CompleteMusic.SetActive(true);
-            }
+            FailMusic.SetActive(true);
         }
         else
         {
@@ -291,6 +280,11 @@ public class SummaryAllValues : MonoBehaviour
     void GoGameOver()
     {
         SceneManager.LoadScene("Game Over");
+    }
+
+    void GoEndCutscene()
+    {
+        SceneManager.LoadScene("EndCutscene");
     }
 
     public void GoNextTurn()
@@ -345,7 +339,7 @@ public class SummaryAllValues : MonoBehaviour
                     //AnalyticsResult completeGame = Analytics.CustomEvent("CompleteGame");
                     //Debug.Log("AnalyticsResult of CompleteGame is " + completeGame);
                     PlayerPrefs.SetInt("LastTurn", turn);
-                    Invoke("GoGameOver", 2.5f);
+                    Invoke("GoEndCutscene", 2.5f);
                 }
                 else
                 {

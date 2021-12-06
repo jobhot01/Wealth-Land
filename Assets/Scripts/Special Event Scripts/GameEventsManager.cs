@@ -12,6 +12,9 @@ public class GameEventsManager : MonoBehaviour
     public Text FixedValueDisplay;
     public Text SumValueDisplay;
     public Text NameDisplay;
+    public Sprite MaleCharacter;
+    public Sprite FemaleCharacter;
+    public Image CharacterDisplay;
     int eventNumbers;
     int cost;//เงินที่เสีย
     int bonus;//เงินที่ได้รับ
@@ -23,10 +26,12 @@ public class GameEventsManager : MonoBehaviour
     int randomEvent;
     int costOrBonus;
     int gameturn;
+    string gender;
 
     void Start()
     {
         GetPlayerPrefsValues();
+        GetGender();
         CalculateEventNumbers();
         SpecificEvents();
         CalculateEventValues();
@@ -36,10 +41,28 @@ public class GameEventsManager : MonoBehaviour
     void GetPlayerPrefsValues()
     {
         gameturn = PlayerPrefs.GetInt("gameturn");
-
+        gender = PlayerPrefs.GetString("Gender");
         if (LoadScene.playerName == null)
         {
             LoadScene.playerName = "No name detected";
+        }
+    }
+
+    void GetGender()
+    {
+        if (gender == null)
+        {
+            Debug.LogWarning("No gender found");
+        }
+        else if (gender == "Male")
+        {
+            CharacterDisplay.sprite = MaleCharacter;
+            Debug.Log("Gender: " + gender);
+        }
+        else if (gender == "Female")
+        {
+            CharacterDisplay.sprite = FemaleCharacter;
+            Debug.Log("Gender: " + gender);
         }
     }
 
@@ -110,7 +133,7 @@ public class GameEventsManager : MonoBehaviour
             
             case 1: 
                 cost = 500;
-                RandomEventText.text = "ดูสัตว์พวกนั้นสิน่ารักจัง โอ๊ย! นกกระจอกเทศตัวนี้มันอะไรเนียจิกหัวฉันซะเลือดออกเลย!";
+                RandomEventText.text = "ดูสัตว์พวกนั้นสิน่ารักจัง โอ๊ย! นกกระจอกเทศตัวนี้มันอะไรเนี่ยจิกหัวฉันซะเลือดออกเลย!";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
@@ -206,13 +229,13 @@ public class GameEventsManager : MonoBehaviour
             
             case 17:
                 bonus = 250;
-                RandomEventText.text = "หัวหน้าที่ทำงานได้เลื่อนขั่นแล้วเลี้ยงหมูกระทะ สบายกระเป๋ากินฟรี 1 มื้อ!";
+                RandomEventText.text = "หัวหน้าที่ทำงานได้เลื่อนขั้นแล้วเลี้ยงหมูกระทะ สบายกระเป๋ากินฟรี 1 มื้อ!";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 
             case 18:
                 bonus = 500;
-                RandomEventText.text = "ระหว่างเดินไปทำงานมีแบงค์ 500 ลอยมาแปะหน้าฉันเฉยเลยอะไรกันเนีย?!";
+                RandomEventText.text = "ระหว่างเดินไปทำงานมีแบงค์ 500 ลอยมาแปะหน้าฉันเฉยเลยอะไรกันเนี่ย?!";
                 Debug.Log("Event Number: " + RandomEventNumber);
                 break;
 

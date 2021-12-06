@@ -39,8 +39,8 @@ public class StartupInvestment : MonoBehaviour
             timer.enabled = true;
         }
 
-        remainingBudgetDisplayer.text = budget.ToString("N0") + " บาท";
-        remainingBankedMoneyDisplayer.text = bankedMoney.ToString("N0") + " บาท";
+        remainingBudgetDisplayer.text = budget.ToString("N0");
+        remainingBankedMoneyDisplayer.text = bankedMoney.ToString("N0");
         nameDisplay.text = LoadScene.playerName.ToString();
         PlayerPrefs.DeleteKey("inputStock");
         PlayerPrefs.DeleteKey("inputBond");

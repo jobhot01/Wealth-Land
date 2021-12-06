@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e51c14a6d6c265f4595e4e5f35bc2933
+guid: 0992372fbcc6b6340b230d29595c9e27
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -35,6 +35,9 @@ TextureImporter:
   - first:
       213: -6331874327593054036
     second: assets-29_28
+  - first:
+      213: -1745810079797635056
+    second: assets-29_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -370,6 +373,27 @@ TextureImporter:
       bones: []
       spriteID: ca09665c8d9a028a0800000000000000
       internalID: -6331874327593054036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: assets-29_29
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 1421
+        width: 2391
+        height: 627
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0189d5c6bf2a5c7e0800000000000000
+      internalID: -1745810079797635056
       vertices: []
       indices: 
       edges: []

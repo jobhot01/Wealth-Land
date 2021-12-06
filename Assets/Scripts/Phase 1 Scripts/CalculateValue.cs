@@ -37,10 +37,10 @@ public class CalculateValue : MonoBehaviour
     {
         myIncome = PlayerPrefs.GetInt("FirstIncome");
         mySavings = PlayerPrefs.GetInt("allSavings");
-        incomeText.text = "รายได้ประจำ          "+ myIncome.ToString("N0") + "    บาท";
-        savingsText.text = "เงินเก็บ                  "+ mySavings.ToString("N0") + "    บาท";
+        incomeText.text = myIncome.ToString("N0");
+        savingsText.text = mySavings.ToString("N0");
         sumIncome = myIncome;
-        sumIncomeText.text = "รวม                      " + sumIncome.ToString("N0") + "    บาท";
+        sumIncomeText.text = sumIncome.ToString("N0");
         addHobbyValue();
         addItemValue();
     }

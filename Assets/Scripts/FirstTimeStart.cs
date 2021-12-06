@@ -16,6 +16,7 @@ public class FirstTimeStart : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
             PlayerPrefs.DeleteAll();
             Debug.Log("Deleted");
+            PlayerPrefs.SetFloat("Volume", 0.35f);
         }
     }
 }

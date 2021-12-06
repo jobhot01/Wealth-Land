@@ -21,7 +21,12 @@ public class VolumeContoller : MonoBehaviour
         {
             audioSource = audioObject.GetComponent<AudioSource>();
         }
-        musicVolume = 0.35f;
+        
+        int wentOption = PlayerPrefs.GetInt("WentOption");
+        if (wentOption == 1)
+        {
+            musicVolume = PlayerPrefs.GetFloat("Volume");
+        }
         //musicVolume = PlayerPrefs.GetFloat("Volume");
         //Debug.Log("Volume: " + musicVolume);
         volumeSlider.value = musicVolume;

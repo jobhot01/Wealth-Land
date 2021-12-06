@@ -33,7 +33,7 @@ public class CalculateSavings : MonoBehaviour
         {
             remainingValue = 0;
         }
-        accountText.text = accountValue.ToString("N0") + "      บาท";
-        remainingText.text = remainingValue.ToString("N0") + "      บาท";
+        accountText.text = accountValue.ToString("N0");
+        remainingText.text = remainingValue.ToString("N0");
     }
 }

@@ -97,8 +97,8 @@ public class CheckMoney : MonoBehaviour
 
     public void UpdateText()
     {
-        remainingBudgetDisplayer.text = startupInvestment.budget.ToString("N0") + " บาท";
-        remainingBankedMoneyDisplayer.text = startupInvestment.bankedMoney.ToString("N0") + " บาท";
+        remainingBudgetDisplayer.text = startupInvestment.budget.ToString("N0");
+        remainingBankedMoneyDisplayer.text = startupInvestment.bankedMoney.ToString("N0");
 
     }
 

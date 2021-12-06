@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 1337291029}
   - component: {fileID: 1337291028}
   m_Layer: 5
-  m_Name: Male Mascot
+  m_Name: Mascot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1282,8 +1282,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -227, y: 0}
-  m_SizeDelta: {x: 100, y: 130}
+  m_AnchoredPosition: {x: -244.87, y: 0}
+  m_SizeDelta: {x: 82.54303, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1337291028
 Animator:
@@ -1470,6 +1470,11 @@ MonoBehaviour:
   FixedValueDisplay: {fileID: 902514041}
   SumValueDisplay: {fileID: 1723287003}
   NameDisplay: {fileID: 770332022}
+  MaleCharacter: {fileID: -2673066520084705247, guid: 5e486758d747bf8428f44276acab9559,
+    type: 3}
+  FemaleCharacter: {fileID: -1534753325991667389, guid: 5e486758d747bf8428f44276acab9559,
+    type: 3}
+  CharacterDisplay: {fileID: 1337291029}
 --- !u!114 &1464218319
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -44,9 +44,9 @@ public class UpdateUI : MonoBehaviour
     {
         if (calculateValue.changeValue == true)
         {
-            extraIncomeText.text = "รายได้เสริม            " + calculateValue.allExtraIncome.ToString("N0") + "    บาท";
-            sumIncomeText.text = "รวม                      " + calculateValue.sumIncome.ToString("N0") + "    บาท";
-            happinessText.text = "ค่าความสุข            " + calculateValue.happiness + "    หน่วย";
+            extraIncomeText.text = calculateValue.allExtraIncome.ToString("N0");
+            sumIncomeText.text = calculateValue.sumIncome.ToString("N0");
+            happinessText.text = calculateValue.happiness.ToString();
             energyText.text = "ค่าพลังงาน " + calculateValue.usedEnergy + "/" + maxEnergy;
             if(calculateValue.usedEnergy <= maxEnergy)
             {

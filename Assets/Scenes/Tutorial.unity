@@ -820,13 +820,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d75b137a1769c4581350c5bfbbc0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialSprite:
+  MaleTutorialSprite:
   - {fileID: 21300000, guid: eee4bd8908a2bc3478d571b6c8bf0abc, type: 3}
   - {fileID: 21300000, guid: 441f79de1faf66049845931f54edbb3d, type: 3}
   - {fileID: 21300000, guid: 20d7f6bc55d16724199d942e82f3853e, type: 3}
   - {fileID: 21300000, guid: 39da6a4d68d835444bb5db85865378fe, type: 3}
   - {fileID: 21300000, guid: b92002966dfa46a4ba212a45b417baa6, type: 3}
   - {fileID: 21300000, guid: 8dee027728824d2419ab38071e93ca03, type: 3}
+  FemaleTutorialSprite:
+  - {fileID: 21300000, guid: c0a173c4e7dfe8643a5424392dd39143, type: 3}
+  - {fileID: 21300000, guid: cd6258dc99c4d7142838e45f8603bc23, type: 3}
+  - {fileID: 21300000, guid: 35676df8833b3e440ab8420dbb315a8d, type: 3}
+  - {fileID: 21300000, guid: a3decad85485d6840b348af5c3730da7, type: 3}
+  - {fileID: 21300000, guid: 5c037b45286ada7498a9af57492dbf43, type: 3}
+  - {fileID: 21300000, guid: 10c37ddea0e6d7a46a75461a608f6d05, type: 3}
   TutorialDisplay: {fileID: 1072490118}
   NextButton: {fileID: 2070919772}
   loadScene: {fileID: 1725136836}
@@ -915,13 +922,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d75b137a1769c4581350c5bfbbc0f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TutorialSprite:
-  - {fileID: 21300000, guid: eee4bd8908a2bc3478d571b6c8bf0abc, type: 3}
-  - {fileID: 21300000, guid: 441f79de1faf66049845931f54edbb3d, type: 3}
-  - {fileID: 21300000, guid: 20d7f6bc55d16724199d942e82f3853e, type: 3}
-  - {fileID: 21300000, guid: 39da6a4d68d835444bb5db85865378fe, type: 3}
-  - {fileID: 21300000, guid: b92002966dfa46a4ba212a45b417baa6, type: 3}
-  - {fileID: 21300000, guid: 8dee027728824d2419ab38071e93ca03, type: 3}
+  MaleTutorialSprite: []
+  FemaleTutorialSprite: []
   TutorialDisplay: {fileID: 1072490118}
   NextButton: {fileID: 2070919772}
   loadScene: {fileID: 1725136836}

@@ -7,20 +7,20 @@ public class Timer : MonoBehaviour
     [SerializeField] LoadScene loadScene;
     [SerializeField] GameObject timeOutObj;
     [SerializeField] GameObject warningObj;
+    [SerializeField] GameObject tutorialPanel;
     [SerializeField] Button nextButton;
+    [SerializeField] Button openTutorialButton;
     [SerializeField] float decreaseTime;
     [SerializeField] Text timeDisplay;
     int gameturn;
+    public static bool isPausing;
 
     void Start()
     {
         GetPlayerPref();
         timeOutObj.SetActive(false);
-        // warningObj.SetActive(false);
-        // if (gameturn == 2)
-        // {
-        //     warningObj.SetActive(true);
-        // }
+        isPausing = false;
+        openTutorialButton.onClick.AddListener(OpenTutorial);
     }
 
     void Update()
@@ -36,19 +36,40 @@ public class Timer : MonoBehaviour
 
     void StartTimer()
     {
-        decreaseTime -= Time.deltaTime;
-            if (decreaseTime <= 5)
-            {
-                timeDisplay.color = Color.red;
-            }
+        if (isPausing == false)
+        {
+            decreaseTime -= Time.deltaTime;
+        }
+        else if (isPausing == true)
+        {
+            decreaseTime = decreaseTime;
+        }
 
-            if (decreaseTime <= 0)
-            {
-                decreaseTime = 0;
-                timeOutObj.SetActive(true);
-                nextButton.interactable = false;
-                Invoke("TimeOut", 2.25f);
-            }
+        if (decreaseTime <= 5)
+        {
+            timeDisplay.color = Color.red;
+        }
+
+        if (decreaseTime <= 0)
+        {
+            decreaseTime = 0;
+            timeOutObj.SetActive(true);
+            nextButton.interactable = false;
+            Invoke("TimeOut", 2.25f);
+        }
+    }
+
+    public void OpenTutorial()
+    {
+        if (gameturn > 1)
+        {
+            isPausing = true;
+        }
+    }
+
+    public void IsPausing(bool isPause)
+    {
+        isPausing = isPause;
     }
 
     void TimeOut()

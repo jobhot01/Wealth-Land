@@ -55,8 +55,8 @@ public class SetupUI : MonoBehaviour
 
     public void UpdateUI()
     {
-        incomeText.text = "เงินที่เหลือ           " + income.ToString("N0") + "   บาท";
-        savingsText.text = "เงินเก็บทั้งหมด           " + savings.ToString("N0") + "   บาท";
+        incomeText.text = income.ToString("N0");
+        savingsText.text = savings.ToString("N0");
         nameDisplay.text = LoadScene.playerName.ToString();
     }
 
